@@ -1,3 +1,6 @@
+drop database  if exists  `iCollect`;
+create  database `iCollect`;
+use `iCollect`;
 drop table if exists corporation_esg;
 drop table if exists corporation_event;
 drop table if exists corporation_opinion;
