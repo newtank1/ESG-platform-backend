@@ -22,6 +22,8 @@ public class CorporationESGVo {
 
     private long record_id;
 
+    private int esg_id;
+
     public CorporationESGVo(CorporationESGPo po){
         BeanUtils.copyProperties(po,this);
     }

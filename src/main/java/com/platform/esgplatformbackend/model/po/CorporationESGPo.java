@@ -20,5 +20,5 @@ public class CorporationESGPo {
 
   private long record_id;
 
-
+  private int esg_id;
 }
