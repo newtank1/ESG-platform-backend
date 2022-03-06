@@ -17,4 +17,6 @@ public class CorporationEventPo {
     private Date time;
 
     private String event;
+
+    private int event_id;
 }

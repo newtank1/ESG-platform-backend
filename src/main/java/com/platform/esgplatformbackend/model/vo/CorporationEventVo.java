@@ -20,6 +20,8 @@ public class CorporationEventVo {
 
     private String event;
 
+    private int event_id;
+
     public CorporationEventVo(CorporationEventPo po){
         BeanUtils.copyProperties(po,this);
     }
