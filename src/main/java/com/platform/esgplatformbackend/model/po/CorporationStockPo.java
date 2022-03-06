@@ -18,4 +18,6 @@ public class CorporationStockPo {
     private Date time;
 
     private BigDecimal price;
+
+    private int stock_record_id;
 }

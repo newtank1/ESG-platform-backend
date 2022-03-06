@@ -19,4 +19,6 @@ public class CorporationOpinionPo {
     private String opinion_text;
 
     private double opinion_score;
+
+    private int opinion_id;
 }

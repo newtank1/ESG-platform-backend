@@ -21,6 +21,8 @@ public class CorporationStockVo {
 
     private BigDecimal price;
 
+    private int stock_record_id;
+
     public CorporationStockVo(CorporationStockPo po){
         BeanUtils.copyProperties(po,this);
     }

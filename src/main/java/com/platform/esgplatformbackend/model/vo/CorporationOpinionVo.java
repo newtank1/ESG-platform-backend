@@ -22,6 +22,8 @@ public class CorporationOpinionVo {
 
     private double opinion_score;
 
+    private int opinion_id;
+
     public CorporationOpinionVo(CorporationOpinionPo po){
         BeanUtils.copyProperties(po,this);
     }
