@@ -10,19 +10,14 @@ import java.util.List;
 @Mapper
 public interface CorporationESGMapper {
     @Select("select * from corporation_esg where corporation_id=#{corporation_id}")
-    List<CorporationESGPo> getESGs(Integer corporation_id);
+    CorporationESGPo getESGByCorporationId(Integer corporation_id);
 
     @Select("select * from corporation_esg where esg_id=#{esg_id}")
     CorporationESGPo getESGByESGId(Integer esg_id);
 
-    @Select("select * from corporation_esg ordered by ESG_total_ranking desc limit #{limit}")
+    @Select("select * from corporation_esg order by ESG_total_ranking asc limit #{limit}")
     List<CorporationESGPo> getESGByTotalRanking(Integer limit);
 
-    @Select("create temporary table corporation_industry select * from corporation_esg, corporation_basic " +
-            "where corporation_esg.corporation_id = corporation_basic.corporation_id;" +
-            "select * from corporation_industry where industry=#{industry}" +
-            " ordered by ESG_industry_ranking desc limit #{limit}")
-    List<CorporationESGPo> getESGByIndustryRanking(String industry,Integer limit);
 
     @Insert("insert into corporation_esg(corporation_id,ESG_total_ranking,ESG_industry_ranking,record_id) " +
             "values(#{corporation_id},#{ESG_total_ranking},#{ESG_industry_ranking},#{record_id})")

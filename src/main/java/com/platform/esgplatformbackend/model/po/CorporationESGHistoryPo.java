@@ -13,9 +13,9 @@ import java.sql.Date;
 @AllArgsConstructor
 @Builder
 public class CorporationESGHistoryPo {
-    private long corporation_id;
+    private int corporation_id;
 
-    private long record_id;
+    private int record_id;
 
     private Date time;
 
@@ -27,83 +27,83 @@ public class CorporationESGHistoryPo {
 
     private double G_score;
 
-    private long e_punished;
+    private int e_punished;
 
-    private long e_have_accidents;
+    private int e_have_accidents;
 
-    private long e_monitored;
+    private int e_monitored;
 
-    private long e_publish_idea;
+    private int e_publish_idea;
 
-    private long e_publish_goal;
+    private int e_publish_goal;
 
-    private long e_publish_regulation;
+    private int e_publish_regulation;
 
-    private long e_use_emergency;
+    private int e_use_emergency;
 
-    private long e_three_wastes_measure;
+    private int e_three_wastes_measure;
 
-    private long e_education;
+    private int e_education;
 
     private double e_investment;
 
-    private long e_recycle_eco;
+    private int e_recycle_eco;
 
-    private long e_save_resource;
+    private int e_save_resource;
 
-    private long e_green_office;
+    private int e_green_office;
 
-    private long e_invention;
+    private int e_invention;
 
-    private long e_useful_invention;
+    private int e_useful_invention;
 
-    private long e_action;
+    private int e_action;
 
-    private long e_product;
+    private int e_product;
 
-    private long e_certification;
+    private int e_certification;
 
-    private long e_award;
+    private int e_award;
 
-    private long e_pollution;
+    private int e_pollution;
 
     private double s_poverty_alleviation_amount;
 
-    private long s_poverty_escape;
+    private int s_poverty_escape;
 
-    private long s_poverty_future_plan;
+    private int s_poverty_future_plan;
 
-    private long s_poverty_activity;
+    private int s_poverty_activity;
 
-    private long s_publish_staff_protection;
+    private int s_publish_staff_protection;
 
-    private long s_publish_supplier_protection;
+    private int s_publish_supplier_protection;
 
-    private long s_publish_responsibility;
+    private int s_publish_responsibility;
 
-    private long s_publish_responsibility_construction;
+    private int s_publish_responsibility_construction;
 
-    private long s_publish_safe_production;
+    private int s_publish_safe_production;
 
-    private long s_product_issue;
+    private int s_product_issue;
 
     private double s_donation;
 
-    private long s_support_education;
+    private int s_support_education;
 
-    private long s_support_charity;
+    private int s_support_charity;
 
-    private long s_volunteer;
+    private int s_volunteer;
 
-    private long s_international_assistance;
+    private int s_international_assistance;
 
-    private long s_activate_employment;
+    private int s_activate_employment;
 
-    private long s_promote_economy;
+    private int s_promote_economy;
 
-    private long s_quality_award;
+    private int s_quality_award;
 
-    private long s_patent;
+    private int s_patent;
 
     private double s_research_pay;
 
@@ -111,29 +111,29 @@ public class CorporationESGHistoryPo {
 
     private double s_skill_proportion;
 
-    private long s_anti_corruption;
+    private int s_anti_corruption;
 
-    private long s_share_strategy;
+    private int s_share_strategy;
 
-    private long s_operation_integrity;
+    private int s_operation_integrity;
 
-    private long s_employee_safe_issue;
+    private int s_employee_safe_issue;
 
-    private long s_layoff;
+    private int s_layoff;
 
-    private long s_employee_stake;
+    private int s_employee_stake;
 
-    private long s_employee_welfare;
+    private int s_employee_welfare;
 
-    private long s_safe_management;
+    private int s_safe_management;
 
-    private long s_safe_education;
+    private int s_safe_education;
 
-    private long s_employment_safety_certification;
+    private int s_employment_safety_certification;
 
-    private long s_employment_safety_education;
+    private int s_employment_safety_education;
 
-    private long s_employee_communication;
+    private int s_employee_communication;
 
     private double g_directors;
 
@@ -153,27 +153,27 @@ public class CorporationESGHistoryPo {
 
     private double g_net_asset_reward;
 
-    private long g_finance_audit;
+    private int g_finance_audit;
 
-    private long g_control_audit;
+    private int g_control_audit;
 
     private double g_executive_quitting;
 
     private double g_nonrecurring_gains_and_losses;
 
-    private long g_dishonesty_person;
+    private int g_dishonesty_person;
 
-    private long g_dishonesty_action;
+    private int g_dishonesty_action;
 
-    private long g_dishonesty_punished;
+    private int g_dishonesty_punished;
 
-    private long g_illegal;
+    private int g_illegal;
 
-    private long g_have_extra_finance_form;
+    private int g_have_extra_finance_form;
 
-    private long g_willing_publish;
+    private int g_willing_publish;
 
-    private long g_have_publish;
+    private int g_have_publish;
 
-    private long g_publish_quality;
+    private int g_publish_quality;
 }

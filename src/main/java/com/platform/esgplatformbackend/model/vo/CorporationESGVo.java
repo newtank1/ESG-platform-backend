@@ -14,13 +14,13 @@ import org.springframework.beans.BeanUtils;
 @Builder
 public class CorporationESGVo {
 
-    private long corporation_id;
+    private int corporation_id;
 
-    private long ESG_total_ranking;
+    private int ESG_total_ranking;
 
-    private long ESG_industry_ranking;
+    private int ESG_industry_ranking;
 
-    private long record_id;
+    private int record_id;
 
     private int esg_id;
 
