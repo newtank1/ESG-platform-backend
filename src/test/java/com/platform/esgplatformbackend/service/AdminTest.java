@@ -47,8 +47,8 @@ public class AdminTest {
     static String location="THERE";
 
     double score = 10;
-    long ESG_total_ranking=100;
-    long ESG_industry_ranking=100;
+    int ESG_total_ranking=100;
+    int ESG_industry_ranking=100;
 
     private CorporationBasicVo generateCBVO(){
         CorporationBasicVo vo = new CorporationBasicVo();
@@ -61,7 +61,6 @@ public class AdminTest {
 
     private CorporationESGVo generateESGVO(){
         CorporationESGVo vo = new CorporationESGVo();
-        vo.setScore(123);
         vo.setESG_total_ranking(10);
         vo.setESG_industry_ranking(1);
         return vo;
@@ -107,12 +106,11 @@ public class AdminTest {
         po1.setTime(new Date(123));
         po1.setESG_total_score(123);
         assertEquals(1,corporationESGHistoryMapper.insert(po1));
-        long record_id = po1.getRecord_id();
+        int record_id = po1.getRecord_id();
 
         CorporationESGVo vo = new CorporationESGVo();
         vo.setCorporation_id(corporation_id);
         vo.setRecord_id(record_id);
-        vo.setScore(score);
         vo.setESG_total_ranking(ESG_total_ranking);
         vo.setESG_industry_ranking(ESG_industry_ranking);
         ResultVO<CorporationESGVo> res = adminService.submitESG(vo);

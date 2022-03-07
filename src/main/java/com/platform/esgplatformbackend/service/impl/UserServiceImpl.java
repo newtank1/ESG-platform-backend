@@ -12,7 +12,6 @@ import com.platform.esgplatformbackend.model.vo.UserInterestVo;
 import com.platform.esgplatformbackend.model.vo.UserVo;
 import com.platform.esgplatformbackend.service.UserService;
 import com.platform.esgplatformbackend.util.Constant;
-import com.sun.org.apache.xerces.internal.xs.LSInputList;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

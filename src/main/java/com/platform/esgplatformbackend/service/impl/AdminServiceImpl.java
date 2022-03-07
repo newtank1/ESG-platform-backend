@@ -93,7 +93,7 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public List<CorporationESGHistoryPo> getESGHistory(Integer corporation_id) {
-        List<CorporationESGHistoryPo> res = corporationESGHistoryMapper.getHistoryByCorporationId(corporation_id);
+        List<CorporationESGHistoryPo> res = corporationESGHistoryMapper.getByCorporationId(corporation_id);
         return res;
     }
 }
