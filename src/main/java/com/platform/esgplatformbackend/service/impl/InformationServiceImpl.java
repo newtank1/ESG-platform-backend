@@ -120,8 +120,8 @@ public class InformationServiceImpl implements InformationService {
     }
 
     @Override
-    public ResultVO<CorporationESGHistoryVo> getLatestHistory(CorporationESGVo vo) {
-        CorporationESGHistoryPo po=corporationESGHistoryMapper.getByRecordId(vo.getRecord_id());
+    public ResultVO<CorporationESGHistoryVo> getLatestHistory(int corporation_id) {
+        CorporationESGHistoryPo po=corporationESGHistoryMapper.getByRecordId(corporation_id);
         return new ResultVO<>(Constant.REQUEST_SUCCESS,"success",new CorporationESGHistoryVo(po));
     }
 }

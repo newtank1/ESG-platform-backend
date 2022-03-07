@@ -85,7 +85,7 @@ public class InfoTest {
         assertEquals(2,allHistory.getData().size());
 
         CorporationESGVo vo=new CorporationESGVo(corporationESGMapper.getESGByCorporationId(corporation_id));
-        ResultVO<CorporationESGHistoryVo> recent=informationService.getLatestHistory(vo);
+        ResultVO<CorporationESGHistoryVo> recent=informationService.getLatestHistory(corporation_id);
 
         assertEquals(5,recent.getData().getESG_total_score());
     }

@@ -22,5 +22,5 @@ public interface InformationService {
 
     ResultVO<List<CorporationESGHistoryVo>> getESGHistory(int corporation_id);
 
-    ResultVO<CorporationESGHistoryVo> getLatestHistory(CorporationESGVo vo);
+    ResultVO<CorporationESGHistoryVo> getLatestHistory(int corporation_id);
 }
