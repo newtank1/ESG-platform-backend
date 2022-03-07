@@ -35,4 +35,7 @@ public interface CorporationBasicMapper {
 
     @Delete("delete from corporation_basic where corporation_id = #{id}")
     int delete(Integer id);
+
+    @Select("select * from corporation_basic where name = #{name}")
+    CorporationBasicPo getCorporationByName(String name);
 }

@@ -16,6 +16,8 @@ public class CorporationESGVo {
 
     private long corporation_id;
 
+    private double score;
+
     private long ESG_total_ranking;
 
     private long ESG_industry_ranking;

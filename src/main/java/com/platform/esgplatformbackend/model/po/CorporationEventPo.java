@@ -1,9 +1,11 @@
 package com.platform.esgplatformbackend.model.po;
 
+import com.platform.esgplatformbackend.model.vo.CorporationEventVo;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.beans.BeanUtils;
 
 import java.sql.Date;
 
@@ -19,4 +21,7 @@ public class CorporationEventPo {
     private String event;
 
     private int event_id;
+    public CorporationEventPo(CorporationEventVo vo){
+        BeanUtils.copyProperties(vo,this);
+    }
 }
