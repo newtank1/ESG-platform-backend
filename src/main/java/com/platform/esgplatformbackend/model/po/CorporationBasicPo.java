@@ -1,5 +1,6 @@
 package com.platform.esgplatformbackend.model.po;
 
+import com.platform.esgplatformbackend.model.vo.CorporationBasicVo;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -19,4 +20,12 @@ public class CorporationBasicPo {
     private String industry;
 
     private String location;
+
+    public CorporationBasicPo(CorporationBasicVo vo){
+        corporation_id=vo.getCorporation_id();
+        name=vo.getName();
+        stoke=vo.getStoke();
+        industry=vo.getIndustry();
+        location=vo.getLocation();
+    }
 }

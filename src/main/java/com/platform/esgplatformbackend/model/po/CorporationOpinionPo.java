@@ -1,9 +1,11 @@
 package com.platform.esgplatformbackend.model.po;
 
+import com.platform.esgplatformbackend.model.vo.CorporationOpinionVo;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.beans.BeanUtils;
 
 import java.sql.Date;
 
@@ -21,4 +23,8 @@ public class CorporationOpinionPo {
     private double opinion_score;
 
     private int opinion_id;
+
+    public CorporationOpinionPo(CorporationOpinionVo vo){
+        BeanUtils.copyProperties(vo,this);
+    }
 }

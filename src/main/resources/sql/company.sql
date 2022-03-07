@@ -1,9 +1,14 @@
+drop database  if exists  `esg_database`;
+create  database `esg_database`;
+use `esg_database`;
 drop table if exists corporation_esg;
 drop table if exists corporation_event;
 drop table if exists corporation_opinion;
 drop table if exists corporation_esg_history;
 drop table if exists corporation_stock;
 drop table if exists corporation_basic;
+
+
 
 create table corporation_basic(
         `corporation_id` int(11) not null auto_increment,
@@ -103,6 +108,7 @@ create table corporation_esg_history(
 
 create table corporation_esg(
         `corporation_id` int(11) not null ,
+        `score` decimal(6,4) not null ,
         `ESG_total_ranking` int(11) not null ,
         `ESG_industry_ranking` int(11) not null ,
         `record_id` int(11) not null ,

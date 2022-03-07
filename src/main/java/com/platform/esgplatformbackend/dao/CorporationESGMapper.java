@@ -9,6 +9,7 @@ import java.util.List;
 @Repository
 @Mapper
 public interface CorporationESGMapper {
+
     @Select("select * from corporation_esg where corporation_id=#{corporation_id}")
     CorporationESGPo getESGByCorporationId(Integer corporation_id);
 
@@ -33,4 +34,7 @@ public interface CorporationESGMapper {
 
     @Delete("delete from corporation_esg where esg_id=#{esg_id}")
     int delete(Integer esg_id);
+
+    @Select("select * from corporation_esg")
+    List<CorporationESGPo> getAllCorporationESG();
 }
