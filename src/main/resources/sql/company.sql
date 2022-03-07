@@ -8,6 +8,8 @@ drop table if exists corporation_esg_history;
 drop table if exists corporation_stock;
 drop table if exists corporation_basic;
 
+
+
 create table corporation_basic(
         `corporation_id` int(11) not null auto_increment,
         `name` varchar(255) not null unique ,
