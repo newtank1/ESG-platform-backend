@@ -177,6 +177,6 @@ public class AdminTest {
     @Transactional
     public void getESGHistory(){
         List<CorporationESGHistoryPo>res = adminService.getESGHistory(1);
-        Assertions.assertEquals(0,res.size());
+        Assertions.assertEquals(1,res.size());
     }
 }

@@ -1,6 +1,7 @@
 package com.platform.esgplatformbackend.service;
 
-public interface SearchService {
+import com.platform.esgplatformbackend.model.vo.ResultVO;
 
+public interface SearchService {
 
 }

@@ -36,7 +36,7 @@ create table corporation_esg_history(
                                         `e_use_emergency` int ,
                                         `e_three_wastes_measure` int ,
                                         `e_education` int ,
-                                        `e_investment` decimal(10,2) ,
+                                        `e_investment` decimal(10,5) ,
                                         `e_recycle_eco` int ,
                                         `e_save_resource` int ,
                                         `e_green_office` int ,
@@ -47,7 +47,7 @@ create table corporation_esg_history(
                                         `e_certification` int ,
                                         `e_award` int ,
                                         `e_pollution` int ,
-                                        `s_poverty_alleviation_amount` decimal ,
+                                        `s_poverty_alleviation_amount` decimal(10,5) ,
                                         `s_poverty_escape` int ,
                                         `s_poverty_future_plan` int ,
                                         `s_poverty_activity` int ,
@@ -57,7 +57,7 @@ create table corporation_esg_history(
                                         `s_publish_responsibility_construction` int ,
                                         `s_publish_safe_production` int ,
                                         `s_product_issue` int ,
-                                        `s_donation` decimal(10,2) ,
+                                        `s_donation` decimal(10,5) ,
                                         `s_support_education` int ,
                                         `s_support_charity` int ,
                                         `s_volunteer` int ,
@@ -66,7 +66,7 @@ create table corporation_esg_history(
                                         `s_promote_economy` int ,
                                         `s_quality_award` int ,
                                         `s_patent` int ,
-                                        `s_research_pay` decimal(10,2) ,
+                                        `s_research_pay` decimal(10,5) ,
                                         `s_researcher_proportion` double ,
                                         `s_skill_proportion` double ,
                                         `s_anti_corruption` int ,
@@ -112,6 +112,8 @@ create table corporation_esg(
         `ESG_total_ranking` int(11) not null ,
         `ESG_industry_ranking` int(11) not null ,
         `record_id` int(11) not null ,
+        `esg_id` int not null auto_increment,
+        primary key (`esg_id`),
         foreign key(`corporation_id`) references corporation_basic(`corporation_id`) on delete cascade on update cascade,
         foreign key (`record_id`) references corporation_esg_history(`record_id`) on DELETE cascade on update cascade
 )default charset=utf8;
@@ -120,6 +122,8 @@ create table corporation_event(
         `corporation_id` int(11)not null,
         `time` date not null ,
         `event` text not null ,
+        `event_id` int not null auto_increment,
+        primary key (`event_id`),
         foreign key (`corporation_id`) references corporation_basic(`corporation_id`) on delete cascade on update cascade
 )default charset=utf8;
 
@@ -128,6 +132,8 @@ create table corporation_opinion(
         `time` date not null ,
         `opinion_text` text not null ,
         `opinion_score` double not null ,
+        `opinion_id` int not null auto_increment,
+        primary key (`opinion_id`),
         foreign key (`corporation_id`) references corporation_basic(`corporation_id`) on delete cascade on update cascade
 )default charset=utf8;
 
@@ -136,5 +142,7 @@ create table corporation_stock(
         `corporation_id` int(11) not null ,
         `time` date not null ,
         `price` decimal not null ,
+        `stock_id` int not null auto_increment,
+        primary key (`stock_id`),
         foreign key (`corporation_id`) references corporation_basic(`corporation_id`) on delete cascade on update cascade
 )default charset=utf8;
