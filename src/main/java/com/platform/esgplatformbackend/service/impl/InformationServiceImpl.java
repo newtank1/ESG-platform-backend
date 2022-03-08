@@ -16,12 +16,6 @@ import java.util.List;
 public class InformationServiceImpl implements InformationService {
 
     @Resource
-    private CorporationBasicMapper corporationBasicMapper;
-
-    @Resource
-    private CorporationESGMapper corporationESGMapper;
-
-    @Resource
     private CorporationOpinionMapper corporationOpinionMapper;
 
     @Resource
@@ -33,6 +27,8 @@ public class InformationServiceImpl implements InformationService {
     @Resource
     private CorporationESGHistoryMapper corporationESGHistoryMapper;
 
+    @Resource
+    private CorporationInfoMapper corporationInfoMapper;
 
     @Override
     public ResultVO<List<CorporationEventVo>> getAllEventsByCorporationId(int corporation_id) {
@@ -96,16 +92,7 @@ public class InformationServiceImpl implements InformationService {
 
     @Override
     public ResultVO<CorporationInfoVo> getNormalInformationById(int corporation_id) {
-        CorporationInfoPo corporationInfoPo=new CorporationInfoPo();
-        CorporationBasicPo corporationBasicPo=corporationBasicMapper.getCorporationById(corporation_id);
-        BeanUtils.copyProperties(corporationBasicPo,corporationInfoPo);
-
-        CorporationESGPo corporationESGPo=corporationESGMapper.getESGByCorporationId(corporation_id);
-        BeanUtils.copyProperties(corporationESGPo,corporationInfoPo);
-
-        CorporationESGHistoryPo corporationESGHistoryPo=corporationESGHistoryMapper.getByRecordId(corporationESGPo.getRecord_id());
-        corporationInfoPo.setESG_total_score(corporationESGHistoryPo.getESG_total_score());
-
+        CorporationInfoPo corporationInfoPo=corporationInfoMapper.getCorporationById(corporation_id);
         return new ResultVO<>(Constant.REQUEST_SUCCESS,"success",new CorporationInfoVo(corporationInfoPo));
     }
 

@@ -8,6 +8,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.BeanUtils;
 
+import java.sql.Date;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -32,6 +34,8 @@ public class CorporationInfoVo {
     private int esg_id;
 
     private double ESG_total_score;
+
+    private Date time;
 
     public CorporationInfoVo(CorporationInfoPo po){
         BeanUtils.copyProperties(po,this);

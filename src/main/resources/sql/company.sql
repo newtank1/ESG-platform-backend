@@ -146,3 +146,12 @@ create table corporation_stock(
         primary key (`stock_id`),
         foreign key (`corporation_id`) references corporation_basic(`corporation_id`) on delete cascade on update cascade
 )default charset=utf8;
+
+create view corporation_info
+as
+    select corporation_basic.corporation_id,name,stoke,industry,location,
+           ESG_total_ranking,ESG_industry_ranking,corporation_esg.record_id,
+           ESG_total_score,time
+    from corporation_basic,corporation_esg,corporation_esg_history
+    where corporation_basic.corporation_id=corporation_esg.corporation_id
+        and corporation_esg.record_id=corporation_esg_history.record_id;

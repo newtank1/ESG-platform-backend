@@ -16,15 +16,6 @@ public interface CorporationBasicMapper {
     @Select("select * from corporation_basic where corporation_id = #{id}")
     CorporationBasicPo getCorporationById(Integer id);
 
-    @Select("<script>" +
-            "select * from corporation_basic " +
-            "where 1=1 " +
-            "<if test='name!=null'> and name like '%${name}%' </if>" +
-            "<if test='industry!=null'>and industry = #{industry} </if>" +
-            "<if test='location!=null'>and location = #{location} </if>" +
-            "</script>")
-    List<CorporationBasicPo> getCorporationBySearch(String name,String industry,String location);
-
     @Insert("insert into corporation_basic(name,stoke,industry,location) values(#{name},#{stoke},#{industry},#{location})")
     @Options(useGeneratedKeys = true,keyProperty = "corporation_id")
     int insert(CorporationBasicPo po);

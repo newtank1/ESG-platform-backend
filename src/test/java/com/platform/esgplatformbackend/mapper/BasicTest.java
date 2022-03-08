@@ -60,40 +60,6 @@ public class BasicTest {
         assertNotEquals(0,list.size());
     }
 
-    @Test
-    @Order(3)
-    void getByName(){
-        List<CorporationBasicPo> list=corporationBasicMapper.getCorporationBySearch("x",null,null);
-        assertNotNull(list);
-        assertNotEquals(0,list.size());
-        boolean accept=false;
-        for(CorporationBasicPo po:list){
-            if (name.equals(po.getName())) {
-                accept = true;
-                break;
-            }
-        }
-        assertTrue(accept);
-    }
-
-    @Test
-    @Order(4)
-    void getByIndustry(){
-        List<CorporationBasicPo> list=corporationBasicMapper.getCorporationBySearch(null,industry,null);
-        assertNotNull(list);
-        assertNotEquals(0,list.size());
-        CorporationBasicPo po=list.get(0);
-        System.out.println(po);
-    }
-
-    @Test
-    @Order(5)
-    void getByAll(){
-        List<CorporationBasicPo> list=corporationBasicMapper.getCorporationBySearch("x",industry,null);
-        assertNotNull(list);
-        System.out.println(list);
-        assertEquals(2,list.size());
-    }
 
     @Test
     @Order(6)
