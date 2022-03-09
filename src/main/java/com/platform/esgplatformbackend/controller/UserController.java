@@ -38,13 +38,17 @@ public class UserController {
         return userService.removeInterest(userInterestVo);
 
     }
+
     @GetMapping("/getallinterests")
     public ResultVO<List<CorporationBasicVo>> getallinterests(int uid){
         return userService.getallinterests(uid);
 
     }
 
-
+    @PostMapping("/register")
+    public ResultVO<UserVo> register(@RequestBody UserVo userVo){
+        return userService.register(userVo);
+    }
 
 
 

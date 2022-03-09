@@ -14,4 +14,5 @@ public interface UserService {
     ResultVO<UserInterestVo> removeInterest(UserInterestVo userInterestVo);
     ResultVO<List<CorporationBasicVo>> getallinterests(int uid);
 
+    ResultVO<UserVo> register(UserVo userVo);
 }

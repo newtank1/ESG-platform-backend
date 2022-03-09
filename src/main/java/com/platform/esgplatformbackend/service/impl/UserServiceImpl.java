@@ -79,4 +79,14 @@ public class UserServiceImpl implements UserService {
         }
         return new ResultVO<>(Constant.REQUEST_SUCCESS,"success",corporationBasicVos);
     }
+
+    @Override
+    public ResultVO<UserVo> register(UserVo userVo) {
+        UserPo userPo=userMapper.getUserByUsername(userVo.getUsername());
+        if (userPo == null) {
+            userMapper.addNewUser(userVo.getUsername(),userVo.getPassword());
+            return new ResultVO<>(Constant.REQUEST_SUCCESS,"注册成功");
+        }
+        return new ResultVO<>(Constant.REQUEST_FAIL,"用户名已存在");
+    }
 }
