@@ -83,7 +83,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public ResultVO<UserVo> register(UserVo userVo) {
         UserPo userPo=userMapper.getUserByUsername(userVo.getUsername());
-        if (userPo == null) {
+        if (userPo == null||userPo.getIs_admin().equals("true")) {
             userMapper.addNewUser(userVo.getUsername(),userVo.getPassword());
             return new ResultVO<>(Constant.REQUEST_SUCCESS,"注册成功");
         }

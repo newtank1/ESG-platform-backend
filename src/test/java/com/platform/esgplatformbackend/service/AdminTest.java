@@ -113,7 +113,7 @@ public class AdminTest {
         vo.setRecord_id(record_id);
         vo.setESG_total_ranking(ESG_total_ranking);
         vo.setESG_industry_ranking(ESG_industry_ranking);
-        ResultVO<CorporationESGVo> res = adminService.submitESG(vo);
+        ResultVO<CorporationESGVo> res = adminService.submitESG(new CorporationESGHistoryVo(po1));
         Assertions.assertEquals(1,res.getCode());
     }
 
@@ -176,7 +176,7 @@ public class AdminTest {
     @Test
     @Transactional
     public void getESGHistory(){
-        List<CorporationESGHistoryPo>res = adminService.getESGHistory(1);
+        List<CorporationESGHistoryVo>res = adminService.getESGHistory(1);
         Assertions.assertEquals(1,res.size());
     }
 }

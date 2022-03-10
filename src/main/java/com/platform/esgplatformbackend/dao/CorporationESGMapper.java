@@ -29,8 +29,8 @@ public interface CorporationESGMapper {
             "ESG_total_ranking=#{ESG_total_ranking}," +
             "ESG_industry_ranking=#{ESG_industry_ranking}," +
             "record_id=#{record_id}" +
-            " where esg_id=#{esg_id}")
-    int update(Integer ESG_total_ranking,Integer ESG_industry_ranking,Integer record_id,Integer esg_id);
+            " where corporation_id=#{corporation_id}")
+    int update(Integer ESG_total_ranking,Integer ESG_industry_ranking,Integer record_id,Integer corporation_id);
 
     @Delete("delete from corporation_esg where esg_id=#{esg_id}")
     int delete(Integer esg_id);

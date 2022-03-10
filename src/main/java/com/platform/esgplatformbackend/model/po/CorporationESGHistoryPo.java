@@ -1,9 +1,11 @@
 package com.platform.esgplatformbackend.model.po;
 
+import com.platform.esgplatformbackend.model.vo.CorporationESGHistoryVo;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.beans.BeanUtils;
 
 import java.sql.Date;
 
@@ -176,4 +178,8 @@ public class CorporationESGHistoryPo {
     private int g_have_publish;
 
     private int g_publish_quality;
+
+    public CorporationESGHistoryPo(CorporationESGHistoryVo vo){
+        BeanUtils.copyProperties(vo,this);
+    }
 }

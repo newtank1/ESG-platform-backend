@@ -26,7 +26,7 @@ public class AdminController {
     }
 
     @PostMapping("/ESG")
-    public ResultVO<CorporationESGVo> submitESG(@RequestBody CorporationESGVo vo){
+    public ResultVO<CorporationESGVo> submitESG(@RequestBody CorporationESGHistoryVo vo){
         return service.submitESG(vo);
     }
 
@@ -46,7 +46,7 @@ public class AdminController {
     }
 
     @GetMapping("/score/{corporation_id}")
-    public List<CorporationESGHistoryPo> getESGHistory(@PathVariable Integer corporation_id){
+    public List<CorporationESGHistoryVo> getESGHistory(@PathVariable Integer corporation_id){
         return service.getESGHistory(corporation_id);
     }
 }

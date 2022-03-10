@@ -28,4 +28,10 @@ public interface CorporationInfoMapper {
             "<if test='location!=null'>and location = #{location} </if>" +
             "</script>")
     List<CorporationInfoPo> getCorporationBySearching(String name,String industry,String location);
+
+    @Select("select * from corporation_info order by ESG_total_score desc")
+    List<CorporationInfoPo> getScoreByTotal();
+
+    @Select("select * from corporation_info where industry=#{industry} order by ESG_total_score desc")
+    List<CorporationInfoPo> getScoreByIndustry(String industry);
 }
