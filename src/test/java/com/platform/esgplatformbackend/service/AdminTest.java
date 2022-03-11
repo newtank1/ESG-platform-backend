@@ -104,7 +104,7 @@ public class AdminTest {
         CorporationESGHistoryPo po1 = new CorporationESGHistoryPo();
         po1.setCorporation_id(corporation_id);
         po1.setTime(new Date(123));
-        po1.setESG_total_score(123);
+        //po1.setESG_total_score(123);
         assertEquals(1,corporationESGHistoryMapper.insert(po1));
         int record_id = po1.getRecord_id();
 
@@ -133,7 +133,7 @@ public class AdminTest {
         vo.setCorporation_id(id);
         vo.setTime(new Date(123));
         vo.setOpinion_text("......");
-        vo.setOpinion_score(12);
+        vo.setOpinion_score(12.0);
         Assertions.assertEquals(1,adminService.submitOpinion(vo).getCode());
     }
 

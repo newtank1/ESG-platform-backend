@@ -20,9 +20,9 @@ public class CorporationOpinionVo {
 
     private String opinion_text;
 
-    private double opinion_score;
+    private Double opinion_score;
 
-    private int opinion_id;
+    private Integer opinion_id;
 
     public CorporationOpinionVo(CorporationOpinionPo po){
         BeanUtils.copyProperties(po,this);

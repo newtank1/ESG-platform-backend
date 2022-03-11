@@ -12,23 +12,23 @@ import java.sql.Date;
 @NoArgsConstructor
 @Builder
 public class CorporationInfoPo {
-    private int corporation_id;
+    private Integer corporation_id;
 
     private String name;
 
-    private int stoke;
+    private Integer stoke;
 
     private String industry;
 
     private String location;
 
-    private int ESG_total_ranking;
+    private Integer ESG_total_ranking;
 
-    private int ESG_industry_ranking;
+    private Integer ESG_industry_ranking;
 
-    private int record_id;
+    private Integer record_id;
 
-    private int esg_id;
+    private Integer esg_id;
 
     private double ESG_total_score;
 

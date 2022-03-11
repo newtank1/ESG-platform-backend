@@ -12,11 +12,11 @@ import org.springframework.beans.BeanUtils;
 @AllArgsConstructor
 @Builder
 public class CorporationBasicVo {
-    private int corporation_id;
+    private Integer corporation_id;
 
     private String name;
 
-    private int stoke;
+    private Integer stoke;
 
     private String industry;
 

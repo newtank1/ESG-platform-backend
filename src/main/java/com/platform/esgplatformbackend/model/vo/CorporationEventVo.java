@@ -14,13 +14,13 @@ import java.sql.Date;
 @NoArgsConstructor
 @Builder
 public class CorporationEventVo {
-    private int corporation_id;
+    private Integer corporation_id;
 
     private Date time;
 
     private String event;
 
-    private int event_id;
+    private Integer event_id;
 
     public CorporationEventVo(CorporationEventPo po){
         BeanUtils.copyProperties(po,this);

@@ -1,6 +1,7 @@
 package com.platform.esgplatformbackend.model.po;
 
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.platform.esgplatformbackend.model.vo.CorporationESGVo;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

@@ -14,7 +14,7 @@ import java.sql.Date;
 @AllArgsConstructor
 @Builder
 public class CorporationOpinionPo {
-    private int corporation_id;
+    private Integer corporation_id;
 
     private Date time;
 
@@ -22,7 +22,7 @@ public class CorporationOpinionPo {
 
     private double opinion_score;
 
-    private int opinion_id;
+    private Integer opinion_id;
 
     public CorporationOpinionPo(CorporationOpinionVo vo){
         BeanUtils.copyProperties(vo,this);

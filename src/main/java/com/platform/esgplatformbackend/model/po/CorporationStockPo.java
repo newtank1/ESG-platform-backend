@@ -15,13 +15,13 @@ import java.sql.Date;
 @AllArgsConstructor
 @Builder
 public class CorporationStockPo {
-    private int corporation_id;
+    private Integer corporation_id;
 
     private Date time;
 
     private BigDecimal price;
 
-    private int stock_record_id;
+    private Integer stock_record_id;
 
     public CorporationStockPo(CorporationStockVo vo){
         BeanUtils.copyProperties(vo,this);

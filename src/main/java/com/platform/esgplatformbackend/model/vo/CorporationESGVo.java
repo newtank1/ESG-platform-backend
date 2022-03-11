@@ -1,6 +1,7 @@
 package com.platform.esgplatformbackend.model.vo;
 
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.platform.esgplatformbackend.model.po.CorporationESGPo;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -14,15 +15,17 @@ import org.springframework.beans.BeanUtils;
 @Builder
 public class CorporationESGVo {
 
-    private int corporation_id;
+    private Integer corporation_id;
 
-    private int ESG_total_ranking;
+    @JsonProperty(value = "ESG_total_ranking")
+    private Integer ESG_total_ranking;
 
-    private int ESG_industry_ranking;
+    @JsonProperty(value = "ESG_industry_ranking")
+    private Integer ESG_industry_ranking;
 
-    private int record_id;
+    private Integer record_id;
 
-    private int esg_id;
+    private Integer esg_id;
 
     public CorporationESGVo(CorporationESGPo po){
         BeanUtils.copyProperties(po,this);

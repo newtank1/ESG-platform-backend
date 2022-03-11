@@ -56,7 +56,7 @@ public class HistoryTest {
     @Order(2)
     void update(){
         CorporationESGHistoryPo po=corporationESGHistoryMapper.getByRecordId(record_id);
-        po.setESG_total_score(10);
+        po.setESG_total_score(10.0);
         assertEquals(1,corporationESGHistoryMapper.update(po));
         assertEquals(10,corporationESGHistoryMapper.getByRecordId(record_id).getESG_total_score());
     }

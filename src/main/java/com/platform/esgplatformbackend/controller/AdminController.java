@@ -1,6 +1,5 @@
 package com.platform.esgplatformbackend.controller;
 
-import com.platform.esgplatformbackend.model.po.CorporationESGHistoryPo;
 import com.platform.esgplatformbackend.model.vo.*;
 import com.platform.esgplatformbackend.service.AdminService;
 import org.springframework.web.bind.annotation.*;
@@ -31,7 +30,7 @@ public class AdminController {
     }
 
     @PostMapping("/opinion")
-    public ResultVO<CorporationOpinionVo> submitOpinon(@RequestBody CorporationOpinionVo vo){
+    public ResultVO<CorporationOpinionVo> submitOpinion(@RequestBody CorporationOpinionVo vo){
         return service.submitOpinion(vo);
     }
 
