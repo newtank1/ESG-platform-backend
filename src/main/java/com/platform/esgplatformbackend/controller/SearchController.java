@@ -19,7 +19,7 @@ public class SearchController {
         return searchService.getById(corporation_id);
     }
 
-    @GetMapping("/total/")
+    @GetMapping("/total")
     public ResultVO<List<CorporationInfoVo>> getByTotalRanking(@RequestParam(name="limit",required = false) Integer limit){
         if (limit == null) {
             limit=50;
