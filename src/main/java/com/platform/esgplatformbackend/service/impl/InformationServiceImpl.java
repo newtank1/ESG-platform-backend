@@ -109,6 +109,9 @@ public class InformationServiceImpl implements InformationService {
     @Override
     public ResultVO<CorporationESGHistoryVo> getLatestHistory(int corporation_id) {
         CorporationESGHistoryPo po=corporationESGHistoryMapper.getByRecordId(corporation_id);
+        if (po == null) {
+            return new ResultVO<>(Constant.REQUEST_FAIL,"not found");
+        }
         return new ResultVO<>(Constant.REQUEST_SUCCESS,"success",new CorporationESGHistoryVo(po));
     }
 }

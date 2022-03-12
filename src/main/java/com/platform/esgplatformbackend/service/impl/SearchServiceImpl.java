@@ -26,6 +26,9 @@ public class SearchServiceImpl implements SearchService {
     @Override
     public ResultVO<CorporationInfoVo> getById(int corporation_id) {
         CorporationInfoPo corporationInfoPo=corporationInfoMapper.getCorporationById(corporation_id);
+        if (corporationInfoPo == null) {
+            return new ResultVO<>(Constant.REQUEST_FAIL,"not found");
+        }
         return new ResultVO<>(Constant.REQUEST_SUCCESS,"success",new CorporationInfoVo(corporationInfoPo));
     }
 
