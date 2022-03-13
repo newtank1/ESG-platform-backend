@@ -15,7 +15,7 @@ import java.sql.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class CorporationInfoVo {
+public class CorporationInfoVo implements Comparable<CorporationInfoVo>{
     @JsonProperty(value = "corporation_id")
     private Integer corporation_id;
 
@@ -45,5 +45,10 @@ public class CorporationInfoVo {
 
     public CorporationInfoVo(CorporationInfoPo po){
         BeanUtils.copyProperties(po,this);
+    }
+
+    @Override
+    public int compareTo(CorporationInfoVo vo) {
+        return vo.ESG_weighted_score.compareTo(this.ESG_weighted_score);
     }
 }

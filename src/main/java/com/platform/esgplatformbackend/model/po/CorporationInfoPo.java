@@ -12,7 +12,7 @@ import java.sql.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class CorporationInfoPo {
+public class CorporationInfoPo implements Comparable<CorporationInfoPo>{
     @JsonProperty(value = "corporation_id")
     private Integer corporation_id;
 
@@ -39,4 +39,9 @@ public class CorporationInfoPo {
 
     @JsonProperty(value = "ESG_weighted_score")
     private Double ESG_weighted_score;
+
+    @Override
+    public int compareTo(CorporationInfoPo po) {
+        return po.ESG_weighted_score.compareTo(this.ESG_weighted_score);
+    }
 }

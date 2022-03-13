@@ -14,12 +14,6 @@ public interface CorporationInfoMapper {
     @Select("select * from corporation_info where corporation_id=#{corporation_id}")
     CorporationInfoPo getCorporationById(Integer corporation_id);
 
-    @Select("select * from corporation_info order by ESG_total_ranking asc limit #{limit}")
-    List<CorporationInfoPo> getCorporationByTotalRanking(Integer limit);
-
-    @Select("select * from corporation_info where industry=#{industry} order by ESG_industry_ranking asc limit #{limit}")
-    List<CorporationInfoPo> getCorporationByIndustryRanking(String industry,Integer limit);
-
     @Select("<script>" +
             "select * from corporation_info " +
             "where 1=1 " +
@@ -29,9 +23,4 @@ public interface CorporationInfoMapper {
             "</script>")
     List<CorporationInfoPo> getCorporationBySearching(String name,String industry,String location);
 
-    @Select("select * from corporation_info order by ESG_total_score desc")
-    List<CorporationInfoPo> getScoreByTotal();
-
-    @Select("select * from corporation_info where industry=#{industry} order by ESG_total_score desc")
-    List<CorporationInfoPo> getScoreByIndustry(String industry);
 }

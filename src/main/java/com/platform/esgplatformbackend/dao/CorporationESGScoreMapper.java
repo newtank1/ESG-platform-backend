@@ -9,7 +9,7 @@ import java.util.List;
 @Repository
 @Mapper
 public interface CorporationESGScoreMapper {
-    CorporationESGScorePo getByRecordId(Integer record_id);
+    CorporationESGScorePo getByRecordId(Integer score_record_id);
 
     List<CorporationESGScorePo> getByCorporationId(Integer corporation_id);
 
