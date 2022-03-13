@@ -5,7 +5,6 @@ import com.platform.esgplatformbackend.model.po.*;
 import com.platform.esgplatformbackend.model.vo.*;
 import com.platform.esgplatformbackend.service.InformationService;
 import com.platform.esgplatformbackend.util.Constant;
-import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -25,7 +24,7 @@ public class InformationServiceImpl implements InformationService {
     private CorporationEventMapper corporationEventMapper;
 
     @Resource
-    private CorporationESGHistoryMapper corporationESGHistoryMapper;
+    private CorporationESGScoreMapper corporationESGScoreMapper;
 
     @Resource
     private CorporationInfoMapper corporationInfoMapper;
@@ -97,21 +96,21 @@ public class InformationServiceImpl implements InformationService {
     }
 
     @Override
-    public ResultVO<List<CorporationESGHistoryVo>> getESGHistory(int corporation_id) {
-        List<CorporationESGHistoryPo> corporationESGHistoryPos=corporationESGHistoryMapper.getByCorporationId(corporation_id);
-        List<CorporationESGHistoryVo> corporationESGHistoryVos=new ArrayList<>();
-        for (CorporationESGHistoryPo po : corporationESGHistoryPos) {
-            corporationESGHistoryVos.add(new CorporationESGHistoryVo(po));
+    public ResultVO<List<CorporationESGScoreVo>> getESGHistory(int corporation_id) {
+        List<CorporationESGScorePo> corporationESGScorePos = corporationESGScoreMapper.getByCorporationId(corporation_id);
+        List<CorporationESGScoreVo> corporationESGScoreVos =new ArrayList<>();
+        for (CorporationESGScorePo po : corporationESGScorePos) {
+            corporationESGScoreVos.add(new CorporationESGScoreVo(po));
         }
-        return new ResultVO<>(Constant.REQUEST_SUCCESS,"success",corporationESGHistoryVos);
+        return new ResultVO<>(Constant.REQUEST_SUCCESS,"success", corporationESGScoreVos);
     }
 
     @Override
-    public ResultVO<CorporationESGHistoryVo> getLatestHistory(int corporation_id) {
-        CorporationESGHistoryPo po=corporationESGHistoryMapper.getByRecordId(corporation_id);
+    public ResultVO<CorporationESGScoreVo> getLatestHistory(int corporation_id) {
+        CorporationESGScorePo po= corporationESGScoreMapper.getByRecordId(corporation_id);
         if (po == null) {
             return new ResultVO<>(Constant.REQUEST_FAIL,"not found");
         }
-        return new ResultVO<>(Constant.REQUEST_SUCCESS,"success",new CorporationESGHistoryVo(po));
+        return new ResultVO<>(Constant.REQUEST_SUCCESS,"success",new CorporationESGScoreVo(po));
     }
 }

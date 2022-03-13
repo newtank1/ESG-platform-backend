@@ -20,7 +20,7 @@ public interface InformationService {
 
     ResultVO<CorporationInfoVo> getNormalInformationById(int corporation_id);
 
-    ResultVO<List<CorporationESGHistoryVo>> getESGHistory(int corporation_id);
+    ResultVO<List<CorporationESGScoreVo>> getESGHistory(int corporation_id);
 
-    ResultVO<CorporationESGHistoryVo> getLatestHistory(int corporation_id);
+    ResultVO<CorporationESGScoreVo> getLatestHistory(int corporation_id);
 }

@@ -64,7 +64,7 @@ public class BasicTest {
     @Test
     @Order(6)
     void update(){
-        assertEquals(1,corporationBasicMapper.update("xyb",124,industry,location,id));
+        assertEquals(1,corporationBasicMapper.update("xyb",124,industry,location,id,null));
         assertEquals("xyb",corporationBasicMapper.getCorporationById(id).getName());
     }
     @Test

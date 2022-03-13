@@ -1,22 +1,18 @@
 package com.platform.esgplatformbackend.service;
 
 import com.platform.esgplatformbackend.dao.CorporationBasicMapper;
-import com.platform.esgplatformbackend.dao.CorporationESGHistoryMapper;
+import com.platform.esgplatformbackend.dao.CorporationESGScoreMapper;
 import com.platform.esgplatformbackend.dao.CorporationESGMapper;
 import com.platform.esgplatformbackend.model.po.CorporationBasicPo;
-import com.platform.esgplatformbackend.model.po.CorporationESGHistoryPo;
-import com.platform.esgplatformbackend.model.po.CorporationESGPo;
-import com.platform.esgplatformbackend.model.po.CorporationOpinionPo;
+import com.platform.esgplatformbackend.model.po.CorporationESGScorePo;
 import com.platform.esgplatformbackend.model.vo.*;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.util.Assert;
 
 import java.math.BigDecimal;
 import java.sql.Date;
@@ -37,7 +33,7 @@ public class AdminTest {
     @Autowired
     CorporationBasicMapper corporationBasicMapper;
     @Autowired
-    CorporationESGHistoryMapper corporationESGHistoryMapper;
+    CorporationESGScoreMapper corporationESGScoreMapper;
     @Autowired
     CorporationESGMapper corporationESGMapper;
 
@@ -61,8 +57,7 @@ public class AdminTest {
 
     private CorporationESGVo generateESGVO(){
         CorporationESGVo vo = new CorporationESGVo();
-        vo.setESG_total_ranking(10);
-        vo.setESG_industry_ranking(1);
+
         return vo;
     }
 
@@ -101,19 +96,14 @@ public class AdminTest {
 //                                        `record_id` int(11) not null auto_increment,
 //                                        `time` date not null ,
 //                                        `ESG_total_score` double not null ,
-        CorporationESGHistoryPo po1 = new CorporationESGHistoryPo();
+        CorporationESGScorePo po1 = new CorporationESGScorePo();
         po1.setCorporation_id(corporation_id);
-        po1.setTime(new Date(123));
         //po1.setESG_total_score(123);
-        assertEquals(1,corporationESGHistoryMapper.insert(po1));
-        int record_id = po1.getRecord_id();
+        assertEquals(1, corporationESGScoreMapper.insert(po1));
 
         CorporationESGVo vo = new CorporationESGVo();
         vo.setCorporation_id(corporation_id);
-        vo.setRecord_id(record_id);
-        vo.setESG_total_ranking(ESG_total_ranking);
-        vo.setESG_industry_ranking(ESG_industry_ranking);
-        ResultVO<CorporationESGVo> res = adminService.submitESG(new CorporationESGHistoryVo(po1));
+        ResultVO<CorporationESGVo> res = adminService.submitESG(new CorporationESGScoreVo(po1));
         Assertions.assertEquals(1,res.getCode());
     }
 
@@ -176,7 +166,7 @@ public class AdminTest {
     @Test
     @Transactional
     public void getESGHistory(){
-        List<CorporationESGHistoryVo>res = adminService.getESGHistory(1);
+        List<CorporationESGScoreVo>res = adminService.getESGHistory(1);
         Assertions.assertEquals(1,res.size());
     }
 }

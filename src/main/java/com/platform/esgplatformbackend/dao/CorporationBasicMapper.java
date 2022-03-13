@@ -16,13 +16,13 @@ public interface CorporationBasicMapper {
     @Select("select * from corporation_basic where corporation_id = #{id}")
     CorporationBasicPo getCorporationById(Integer id);
 
-    @Insert("insert into corporation_basic(name,stoke,industry,location) values(#{name},#{stoke},#{industry},#{location})")
+    @Insert("insert into corporation_basic(name,stoke,industry,location,introduction) values(#{name},#{stoke},#{industry},#{location},#{introduction})")
     @Options(useGeneratedKeys = true,keyProperty = "corporation_id")
     int insert(CorporationBasicPo po);
 
-    @Update("update corporation_basic set name=#{name},stoke=#{stoke},industry=#{industry},location=#{location}" +
+    @Update("update corporation_basic set name=#{name},stoke=#{stoke},industry=#{industry},location=#{location},introduction=#{introduction}" +
             " where corporation_id=#{id}" )
-    int update(String name,Integer stoke,String industry,String location,Integer id);
+    int update(String name,Integer stoke,String industry,String location,Integer id,String introduction);
 
     @Delete("delete from corporation_basic where corporation_id = #{id}")
     int delete(Integer id);

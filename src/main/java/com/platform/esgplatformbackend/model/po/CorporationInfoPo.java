@@ -1,5 +1,6 @@
 package com.platform.esgplatformbackend.model.po;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -12,26 +13,30 @@ import java.sql.Date;
 @NoArgsConstructor
 @Builder
 public class CorporationInfoPo {
+    @JsonProperty(value = "corporation_id")
     private Integer corporation_id;
 
+    @JsonProperty(value = "name")
     private String name;
 
-    private Integer stoke;
+    @JsonProperty(value = "introduction")
+    private String introduction;
 
+    @JsonProperty(value = "industry")
     private String industry;
 
+    @JsonProperty(value = "location")
     private String location;
 
-    private Integer ESG_total_ranking;
+    @JsonProperty(value = "stoke")
+    private Integer stoke;
 
-    private Integer ESG_industry_ranking;
+    @JsonProperty(value = "ESG_risky_score")
+    private Double ESG_risky_score;
 
-    private Integer record_id;
+    @JsonProperty(value = "ESG_steady_score")
+    private Double ESG_steady_score;
 
-    private Integer esg_id;
-
-    private double ESG_total_score;
-
-    private Date time;
-
+    @JsonProperty(value = "ESG_weighted_score")
+    private Double ESG_weighted_score;
 }

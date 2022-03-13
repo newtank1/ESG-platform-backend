@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.platform.esgplatformbackend.dao.CorporationESGHistoryMapper">
-    <resultMap id="BaseResultMap" type="com.platform.esgplatformbackend.model.po.CorporationESGHistoryPo">
-        <id column="record_id" jdbcType="INTEGER" property="record_id" />
+<mapper namespace="com.platform.esgplatformbackend.dao.CorporationESGScoreMapper">
+    <resultMap id="BaseResultMap" type="com.platform.esgplatformbackend.model.po.CorporationESGScorePo">
+        <id column="score_record_id" jdbcType="INTEGER" property="score_record_id" />
         <result column="corporation_id" jdbcType="INTEGER" property="corporation_id" />
-        <result column="time" jdbcType="DATE" property="time" />
+        <result column="score_type" jdbcType="CHAR" property="score_type" />
         <result column="ESG_total_score" jdbcType="DOUBLE" property="ESG_total_score" />
         <result column="E_score" jdbcType="DOUBLE" property="e_score" />
         <result column="S_score" jdbcType="DOUBLE" property="s_score" />
@@ -84,24 +84,40 @@
         <result column="g_willing_publish" jdbcType="INTEGER" property="g_willing_publish" />
         <result column="g_have_publish" jdbcType="INTEGER" property="g_have_publish" />
         <result column="g_publish_quality" jdbcType="INTEGER" property="g_publish_quality" />
+        <result column="e_accident" jdbcType="DOUBLE" property="e_accident" />
+        <result column="e_publish" jdbcType="DOUBLE" property="e_publish" />
+        <result column="e_pollution_deal" jdbcType="DOUBLE" property="e_pollution_deal" />
+        <result column="e_benefit" jdbcType="DOUBLE" property="e_benefit" />
+        <result column="e_others" jdbcType="DOUBLE" property="e_others" />
+        <result column="s_poverty" jdbcType="DOUBLE" property="s_poverty" />
+        <result column="s_publish" jdbcType="DOUBLE" property="s_publish" />
+        <result column="s_issue" jdbcType="DOUBLE" property="s_issue" />
+        <result column="s_charity" jdbcType="DOUBLE" property="s_charity" />
+        <result column="s_product" jdbcType="DOUBLE" property="s_product" />
+        <result column="s_employee" jdbcType="DOUBLE" property="s_employee" />
+        <result column="g_structure" jdbcType="DOUBLE" property="g_structure" />
+        <result column="g_result" jdbcType="DOUBLE" property="g_result" />
+        <result column="g_audit" jdbcType="DOUBLE" property="g_audit" />
+        <result column="g_exception" jdbcType="DOUBLE" property="g_exception" />
+        <result column="g_visibility" jdbcType="DOUBLE" property="g_visibility" />
     </resultMap>
 
     <select id="getByRecordId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-        select * from corporation_esg_history where record_id=#{record_id}
+        select * from corporation_esg_score where score_record_id=#{score_record_id}
     </select>
     <select id="getByCorporationId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-        select * from corporation_esg_history where corporation_id=#{corporation_id}
+        select * from corporation_esg_score where corporation_id=#{corporation_id}
     </select>
     <delete id="delete" parameterType="java.lang.Integer">
-        delete from corporation_esg_history
-        where record_id = #{record_id,jdbcType=INTEGER}
+        delete from corporation_esg_score
+        where score_record_id = #{score_record_id,jdbcType=INTEGER}
     </delete>
-    <insert id="insert" parameterType="com.platform.esgplatformbackend.model.po.CorporationESGHistoryPo"
-            useGeneratedKeys = "true" keyProperty = "record_id">
-        insert into corporation_esg_history
+    <insert id="insert" parameterType="com.platform.esgplatformbackend.model.po.CorporationESGScorePo"
+            useGeneratedKeys = "true" keyProperty = "score_record_id">
+        insert into corporation_esg_score
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="record_id != null">
-                record_id,
+            <if test="score_record_id != null">
+                score_record_id,
             </if>
             <if test="corporation_id != null">
                 corporation_id,
@@ -346,10 +362,58 @@
             <if test="g_publish_quality != null">
                 g_publish_quality,
             </if>
+            <if test="e_accident != null">
+                e_accident,
+            </if>
+            <if test="e_publish != null">
+                e_publish,
+            </if>
+            <if test="e_pollution_deal != null">
+                e_pollution_deal,
+            </if>
+            <if test="e_benefit != null">
+                e_benefit,
+            </if>
+            <if test="e_others != null">
+                e_others,
+            </if>
+            <if test="s_poverty != null">
+                s_poverty,
+            </if>
+            <if test="s_publish != null">
+                s_publish,
+            </if>
+            <if test="s_issue != null">
+                s_issue,
+            </if>
+            <if test="s_charity != null">
+                s_charity,
+            </if>
+            <if test="s_product != null">
+                s_product,
+            </if>
+            <if test="s_employee != null">
+                s_employee,
+            </if>
+            <if test="g_structure != null">
+                g_structure,
+            </if>
+            <if test="g_result != null">
+                g_result,
+            </if>
+            <if test="g_audit != null">
+                g_audit,
+            </if>
+            <if test="g_exception != null">
+                g_exception,
+            </if>
+            <if test="g_visibility != null">
+                g_visibility,
+            </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
-            <if test="record_id != null">
-                #{record_id,jdbcType=INTEGER},
+            <if test="score_record_id != null">
+                #{score_record_id,jdbcType=INTEGER},
             </if>
             <if test="corporation_id != null">
                 #{corporation_id,jdbcType=INTEGER},
@@ -594,10 +658,58 @@
             <if test="g_publish_quality != null">
                 #{g_publish_quality,jdbcType=INTEGER},
             </if>
+            <if test="e_accident != null">
+                #{e_accident,jdbcType=DOUBLE},
+            </if>
+            <if test="e_publish != null">
+                #{e_publish,jdbcType=DOUBLE},
+            </if>
+            <if test="e_pollution_deal != null">
+                #{e_pollution_deal,jdbcType=DOUBLE},
+            </if>
+            <if test="e_benefit != null">
+                #{e_benefit,jdbcType=DOUBLE},
+            </if>
+            <if test="e_others != null">
+                #{e_others,jdbcType=DOUBLE},
+            </if>
+            <if test="s_poverty != null">
+                #{s_poverty,jdbcType=DOUBLE},
+            </if>
+            <if test="s_publish != null">
+                #{s_publish,jdbcType=DOUBLE},
+            </if>
+            <if test="s_issue != null">
+                #{s_issue,jdbcType=DOUBLE},
+            </if>
+            <if test="s_charity != null">
+                #{s_charity,jdbcType=DOUBLE},
+            </if>
+            <if test="s_product != null">
+                #{s_product,jdbcType=DOUBLE},
+            </if>
+            <if test="s_employee != null">
+                #{s_employee,jdbcType=DOUBLE},
+            </if>
+            <if test="g_structure != null">
+                #{g_structure,jdbcType=DOUBLE},
+            </if>
+            <if test="g_result != null">
+                #{g_result,jdbcType=DOUBLE},
+            </if>
+            <if test="g_audit != null">
+                #{g_audit,jdbcType=DOUBLE},
+            </if>
+            <if test="g_exception != null">
+                #{g_exception,jdbcType=DOUBLE},
+            </if>
+            <if test="g_visibility != null">
+                #{g_visibility,jdbcType=DOUBLE},
+            </if>
         </trim>
     </insert>
-    <update id="update" parameterType="com.platform.esgplatformbackend.model.po.CorporationESGHistoryPo">
-        update corporation_esg_history
+    <update id="update" parameterType="com.platform.esgplatformbackend.model.po.CorporationESGScorePo">
+        update corporation_esg_score
         <set>
             <if test="corporation_id != null">
                 corporation_id = #{corporation_id,jdbcType=INTEGER},
@@ -842,7 +954,55 @@
             <if test="g_publish_quality != null">
                 g_publish_quality = #{g_publish_quality,jdbcType=INTEGER},
             </if>
+            <if test="e_accident != null">
+                e_accident = #{e_accident,jdbcType=DOUBLE},
+            </if>
+            <if test="e_publish != null">
+                e_publish = #{e_publish,jdbcType=DOUBLE},
+            </if>
+            <if test="e_pollution_deal != null">
+                e_pollution_deal = #{e_pollution_deal,jdbcType=DOUBLE},
+            </if>
+            <if test="e_benefit != null">
+                e_benefit = #{e_benefit,jdbcType=DOUBLE},
+            </if>
+            <if test="e_others != null">
+                e_others = #{e_others,jdbcType=DOUBLE},
+            </if>
+            <if test="s_poverty != null">
+                s_poverty = #{s_poverty,jdbcType=DOUBLE},
+            </if>
+            <if test="s_publish != null">
+                s_publish = #{s_publish,jdbcType=DOUBLE},
+            </if>
+            <if test="s_issue != null">
+                s_issue = #{s_issue,jdbcType=DOUBLE},
+            </if>
+            <if test="s_charity != null">
+                s_charity = #{s_charity,jdbcType=DOUBLE},
+            </if>
+            <if test="s_product != null">
+                s_product = #{s_product,jdbcType=DOUBLE},
+            </if>
+            <if test="s_employee != null">
+                s_employee = #{s_employee,jdbcType=DOUBLE},
+            </if>
+            <if test="g_structure != null">
+                g_structure = #{g_structure,jdbcType=DOUBLE},
+            </if>
+            <if test="g_result != null">
+                g_result = #{g_result,jdbcType=DOUBLE},
+            </if>
+            <if test="g_audit != null">
+                g_audit = #{g_audit,jdbcType=DOUBLE},
+            </if>
+            <if test="g_exception != null">
+                g_exception = #{g_exception,jdbcType=DOUBLE},
+            </if>
+            <if test="g_visibility != null">
+                g_visibility = #{g_visibility,jdbcType=DOUBLE},
+            </if>
         </set>
-        where record_id = #{record_id,jdbcType=INTEGER}
+        where score_record_id = #{score_record_id,jdbcType=INTEGER}
     </update>
 </mapper>

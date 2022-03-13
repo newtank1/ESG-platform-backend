@@ -26,7 +26,7 @@ public class AdminServiceImpl implements AdminService {
     @Resource
     private CorporationEventMapper corporationEventMapper;
     @Resource
-    private CorporationESGHistoryMapper corporationESGHistoryMapper;
+    private CorporationESGScoreMapper corporationESGScoreMapper;
     @Resource
     private CorporationInfoMapper corporationInfoMapper;
     @Override
@@ -46,15 +46,15 @@ public class AdminServiceImpl implements AdminService {
         int stoke = corp.getStoke();
         String industry = corp.getIndustry();
         String location = corp.getLocation();
-        int update = corporationBasicMapper.update(name,stoke,industry,location,corporation_id);
+        String introduction=corp.getIntroduction();
+        int update = corporationBasicMapper.update(name,stoke,industry,location,corporation_id,introduction);
 
         if(update==1) return new ResultVO<>(Constant.REQUEST_SUCCESS, "更新公司基本信息成功", corp);
         else return new ResultVO<>(Constant.REQUEST_FAIL, "更新公司基本信息失败");
     }
 
     // TODO
-    @Override
-    public ResultVO<CorporationESGVo> submitESG(CorporationESGHistoryVo vo) {
+    public ResultVO<CorporationESGVo> submitESG(CorporationESGScoreVo vo) {
         /*CorporationESGPo po = new CorporationESGPo(vo);
         int line = corporationESGMapper.insert(new CorporationESGPo(vo));
         if(line==1){
@@ -62,8 +62,8 @@ public class AdminServiceImpl implements AdminService {
         }else{
             return new ResultVO<>(Constant.REQUEST_FAIL, "提交ESG信息失败");
         }*/
-        CorporationESGHistoryPo po=new CorporationESGHistoryPo(vo);
-        int line=corporationESGHistoryMapper.insert(po);
+        /*CorporationESGScorePo po=new CorporationESGScorePo(vo);
+        int line= corporationESGScoreMapper.insert(po);
         if(line==0) return new ResultVO<>(Constant.REQUEST_FAIL, "提交ESG信息失败");
         int corporation_id=(int)vo.getCorporation_id();
         Date time=corporationInfoMapper.getCorporationById(corporation_id).getTime();
@@ -82,7 +82,8 @@ public class AdminServiceImpl implements AdminService {
                 corporationESGMapper.update(total_rank,industry_rank,record_id,po_corporation_id);
             }
         }
-        return new ResultVO<>(Constant.REQUEST_SUCCESS, "提交ESG信息成功", new CorporationESGVo(corporationESGMapper.getESGByCorporationId(corporation_id)));
+        return new ResultVO<>(Constant.REQUEST_SUCCESS, "提交ESG信息成功", new CorporationESGVo(corporationESGMapper.getESGByCorporationId(corporation_id)));*/
+        return null;
     }
 
     @Override
@@ -116,11 +117,11 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
-    public List<CorporationESGHistoryVo> getESGHistory(Integer corporation_id) {
-        List<CorporationESGHistoryPo> pos = corporationESGHistoryMapper.getByCorporationId(corporation_id);
-        List<CorporationESGHistoryVo> res=new ArrayList<>();
-        for (CorporationESGHistoryPo po : pos) {
-            res.add(new CorporationESGHistoryVo(po));
+    public List<CorporationESGScoreVo> getESGHistory(Integer corporation_id) {
+        List<CorporationESGScorePo> pos = corporationESGScoreMapper.getByCorporationId(corporation_id);
+        List<CorporationESGScoreVo> res=new ArrayList<>();
+        for (CorporationESGScorePo po : pos) {
+            res.add(new CorporationESGScoreVo(po));
         }
         return res;
     }

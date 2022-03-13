@@ -17,10 +17,6 @@ public class CorporationESGPo {
 
   private int corporation_id;
 
-  private int ESG_total_ranking;
-
-  private int ESG_industry_ranking;
-
   private int record_id;
 
   private int esg_id;

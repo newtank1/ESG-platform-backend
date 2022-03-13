@@ -17,12 +17,6 @@ public class CorporationESGVo {
 
     private Integer corporation_id;
 
-    @JsonProperty(value = "ESG_total_ranking")
-    private Integer ESG_total_ranking;
-
-    @JsonProperty(value = "ESG_industry_ranking")
-    private Integer ESG_industry_ranking;
-
     private Integer record_id;
 
     private Integer esg_id;

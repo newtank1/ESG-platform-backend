@@ -33,12 +33,12 @@ public class InfoController {
     }
 
     @GetMapping("/history/{corporation_id}")
-    public ResultVO<CorporationESGHistoryVo> getLatestHistory(@PathVariable Integer corporation_id){
+    public ResultVO<CorporationESGScoreVo> getLatestHistory(@PathVariable Integer corporation_id){
         return informationService.getLatestHistory(corporation_id);
     }
 
     @GetMapping("/allHistory/{corporation_id}")
-    public ResultVO<List<CorporationESGHistoryVo>> getAllHistory(@PathVariable Integer corporation_id){
+    public ResultVO<List<CorporationESGScoreVo>> getAllHistory(@PathVariable Integer corporation_id){
         return informationService.getESGHistory(corporation_id);
     }
 }

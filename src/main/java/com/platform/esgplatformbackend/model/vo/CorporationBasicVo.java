@@ -22,6 +22,8 @@ public class CorporationBasicVo {
 
     private String location;
 
+    private String introduction;
+
     public CorporationBasicVo(CorporationBasicPo po){
         BeanUtils.copyProperties(po,this);
     }

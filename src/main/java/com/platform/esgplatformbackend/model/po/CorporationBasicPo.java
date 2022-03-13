@@ -21,11 +21,14 @@ public class CorporationBasicPo {
 
     private String location;
 
+    private String introduction;
+
     public CorporationBasicPo(CorporationBasicVo vo){
         corporation_id=vo.getCorporation_id();
         name=vo.getName();
         stoke=vo.getStoke();
         industry=vo.getIndustry();
         location=vo.getLocation();
+        introduction=vo.getIntroduction();
     }
 }

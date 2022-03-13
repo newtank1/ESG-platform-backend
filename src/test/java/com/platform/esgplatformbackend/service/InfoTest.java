@@ -73,19 +73,17 @@ public class InfoTest {
 
         CorporationInfoVo info=infoVoResultVO.getData();
         assertEquals("xya",info.getName());
-        assertEquals(1,info.getESG_total_ranking());
-        assertEquals(5,info.getESG_total_score());
     }
 
     @Test
     @Transactional
     void getHistory(){
-        ResultVO<List<CorporationESGHistoryVo>> allHistory=informationService.getESGHistory(corporation_id);
+        ResultVO<List<CorporationESGScoreVo>> allHistory=informationService.getESGHistory(corporation_id);
         assertEquals(Constant.REQUEST_SUCCESS,allHistory.getCode());
         assertEquals(2,allHistory.getData().size());
 
         CorporationESGVo vo=new CorporationESGVo(corporationESGMapper.getESGByCorporationId(corporation_id));
-        ResultVO<CorporationESGHistoryVo> recent=informationService.getLatestHistory(corporation_id);
+        ResultVO<CorporationESGScoreVo> recent=informationService.getLatestHistory(corporation_id);
 
         assertEquals(5,recent.getData().getESG_total_score());
     }

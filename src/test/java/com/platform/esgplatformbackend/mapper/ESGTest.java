@@ -32,8 +32,6 @@ public class ESGTest {
     void insert(){
         CorporationESGPo po=new CorporationESGPo();
         po.setCorporation_id(corporation_id);
-        po.setESG_industry_ranking(ESG_industry_ranking);
-        po.setESG_total_ranking(ESG_total_ranking);
         po.setRecord_id(record_id);
         assertEquals(1,corporationESGMapper.insert(po));
         esg_id=po.getEsg_id();
@@ -43,7 +41,6 @@ public class ESGTest {
     void getByCorporationId(){
         CorporationESGPo po=corporationESGMapper.getESGByCorporationId(corporation_id);
         assertEquals(2,po.getCorporation_id());
-        assertEquals(ESG_total_ranking,po.getESG_total_ranking());
     }
 
     @Test

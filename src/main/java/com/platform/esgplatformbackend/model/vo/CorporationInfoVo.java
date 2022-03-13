@@ -16,30 +16,32 @@ import java.sql.Date;
 @NoArgsConstructor
 @Builder
 public class CorporationInfoVo {
+    @JsonProperty(value = "corporation_id")
     private Integer corporation_id;
 
+    @JsonProperty(value = "name")
     private String name;
 
-    private Integer stoke;
+    @JsonProperty(value = "introduction")
+    private String introduction;
 
+    @JsonProperty(value = "industry")
     private String industry;
 
+    @JsonProperty(value = "location")
     private String location;
 
-    @JsonProperty(value = "ESG_total_ranking")
-    private Integer ESG_total_ranking;
+    @JsonProperty(value = "stoke")
+    private Integer stoke;
 
-    @JsonProperty(value = "ESG_industry_ranking")
-    private Integer ESG_industry_ranking;
+    @JsonProperty(value = "ESG_risky_score")
+    private Double ESG_risky_score;
 
-    private Integer record_id;
+    @JsonProperty(value = "ESG_steady_score")
+    private Double ESG_steady_score;
 
-    private Integer esg_id;
-
-    @JsonProperty(value = "ESG_total_score")
-    private Double ESG_total_score;
-
-    private Date time;
+    @JsonProperty(value = "ESG_weighted_score")
+    private Double ESG_weighted_score;
 
     public CorporationInfoVo(CorporationInfoPo po){
         BeanUtils.copyProperties(po,this);
