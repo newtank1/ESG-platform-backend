@@ -1,6 +1,5 @@
 package com.platform.esgplatformbackend.controller;
 
-
 import com.platform.esgplatformbackend.model.vo.CorporationBasicVo;
 import com.platform.esgplatformbackend.model.vo.ResultVO;
 import com.platform.esgplatformbackend.model.vo.UserInterestVo;

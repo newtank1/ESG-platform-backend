@@ -1,6 +1,5 @@
 package com.platform.esgplatformbackend.controller;
 
-import com.platform.esgplatformbackend.model.po.CorporationESGHistoryPo;
 import com.platform.esgplatformbackend.model.vo.*;
 import com.platform.esgplatformbackend.service.InformationService;
 import org.springframework.web.bind.annotation.*;
