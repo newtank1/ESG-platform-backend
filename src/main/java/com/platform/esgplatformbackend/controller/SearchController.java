@@ -20,26 +20,13 @@ public class SearchController {
         return searchService.getById(corporation_id);
     }
 
-    @GetMapping("/total")
-    public ResultVO<List<CorporationInfoVo>> getByTotalRanking(@RequestParam(name="limit",required = false) Integer limit){
-        if (limit == null) {
-            limit=50;
-        }
-        return searchService.getByTotalRanking(limit);
-    }
 
-    @GetMapping("/industry/{industry}")
-    public ResultVO<List<CorporationInfoVo>> getByIndustryRanking(@PathVariable String industry,@RequestParam(name="limit",required = false) Integer limit){
-        if (limit == null) {
-            limit=50;
-        }
-        return searchService.getByIndustryRanking(industry,limit);
-    }
 
     @GetMapping("/")
     public ResultVO<List<CorporationInfoVo>> getBySearching(@RequestParam(name="name",required = false) String name,
                                                             @RequestParam(name="industry",required = false) String industry,
-                                                            @RequestParam(name="location",required = false) String location){
-        return searchService.getBySearching(name,industry,location);
+                                                            @RequestParam(name="location",required = false) String location,
+                                                            @RequestParam(name="rate",required = true) double rate){
+        return searchService.getBySearching(name,industry,location,rate);
     }
 }

@@ -108,6 +108,9 @@
     <select id="getByCorporationId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
         select * from corporation_esg_score where corporation_id=#{corporation_id}
     </select>
+    <select id="getByCorporationIdAndType" resultMap="BaseResultMap">
+        select * from corporation_esg_score where corporation_id=#{corporation_id} and score_type=#{score_type}
+    </select>
     <delete id="delete" parameterType="java.lang.Integer">
         delete from corporation_esg_score
         where score_record_id = #{score_record_id,jdbcType=INTEGER}

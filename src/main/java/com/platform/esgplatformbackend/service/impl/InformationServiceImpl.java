@@ -29,6 +29,15 @@ public class InformationServiceImpl implements InformationService {
     @Resource
     private CorporationInfoMapper corporationInfoMapper;
 
+    @Resource
+    private CorporationFactorMapper corporationFactorMapper;
+
+    @Resource
+    private CorporationESGMapper corporationESGMapper;
+
+    @Resource
+    private CorporationHistoryMapper corporationHistoryMapper;
+
     @Override
     public ResultVO<List<CorporationEventVo>> getAllEventsByCorporationId(int corporation_id) {
         List<CorporationEventPo> corporationEventPos=corporationEventMapper.getEvents(corporation_id);
@@ -96,21 +105,65 @@ public class InformationServiceImpl implements InformationService {
     }
 
     @Override
-    public ResultVO<List<CorporationESGScoreVo>> getESGHistory(int corporation_id) {
-        List<CorporationESGScorePo> corporationESGScorePos = corporationESGScoreMapper.getByCorporationId(corporation_id);
-        List<CorporationESGScoreVo> corporationESGScoreVos =new ArrayList<>();
-        for (CorporationESGScorePo po : corporationESGScorePos) {
-            corporationESGScoreVos.add(new CorporationESGScoreVo(po));
-        }
-        return new ResultVO<>(Constant.REQUEST_SUCCESS,"success", corporationESGScoreVos);
-    }
-
-    @Override
-    public ResultVO<CorporationESGScoreVo> getLatestHistory(int corporation_id) {
-        CorporationESGScorePo po= corporationESGScoreMapper.getByRecordId(corporation_id);
+    public ResultVO<CorporationESGScoreVo> getLatestRiskyScore(int corporation_id) {
+        int record_id=corporationESGMapper.getESGByCorporationId(corporation_id).getRecord_id();
+        CorporationESGHistoryPo corporationESGHistoryPo=corporationHistoryMapper.selectByRecordId(record_id);
+        int risky_record_id=corporationESGHistoryPo.getRisky_record_id();
+        CorporationESGScorePo po=corporationESGScoreMapper.getByRecordId(risky_record_id);
         if (po == null) {
             return new ResultVO<>(Constant.REQUEST_FAIL,"not found");
         }
         return new ResultVO<>(Constant.REQUEST_SUCCESS,"success",new CorporationESGScoreVo(po));
     }
+
+    @Override
+    public ResultVO<List<CorporationESGScoreVo>> getRiskyScores(int corporation_id, int day) {
+        List<CorporationESGHistoryPo> corporationESGHistoryPos=corporationHistoryMapper.selectByCorporationAndTime(corporation_id,day);
+        List<CorporationESGScoreVo> vos=new ArrayList<>();
+        for (CorporationESGHistoryPo corporationESGHistoryPo : corporationESGHistoryPos) {
+            CorporationESGScorePo po=corporationESGScoreMapper.getByRecordId(corporationESGHistoryPo.getRisky_record_id());
+            vos.add(new CorporationESGScoreVo(po));
+        }
+        return new ResultVO<>(Constant.REQUEST_SUCCESS,"success",vos);
+    }
+
+    @Override
+    public ResultVO<CorporationESGScoreVo> getLatestSteadyScore(int corporation_id) {
+        int record_id=corporationESGMapper.getESGByCorporationId(corporation_id).getRecord_id();
+        CorporationESGHistoryPo corporationESGHistoryPo=corporationHistoryMapper.selectByRecordId(record_id);
+        int steady_record_id=corporationESGHistoryPo.getSteady_record_id();
+        CorporationESGScorePo po=corporationESGScoreMapper.getByRecordId(steady_record_id);
+        if (po == null) {
+            return new ResultVO<>(Constant.REQUEST_FAIL,"not found");
+        }
+        return new ResultVO<>(Constant.REQUEST_SUCCESS,"success",new CorporationESGScoreVo(po));
+    }
+
+    @Override
+    public ResultVO<List<CorporationESGScoreVo>> getSteadyScores(int corporation_id, int day) {
+        List<CorporationESGHistoryPo> corporationESGHistoryPos=corporationHistoryMapper.selectByCorporationAndTime(corporation_id,day);
+        List<CorporationESGScoreVo> vos=new ArrayList<>();
+        for (CorporationESGHistoryPo corporationESGHistoryPo : corporationESGHistoryPos) {
+            CorporationESGScorePo po=corporationESGScoreMapper.getByRecordId(corporationESGHistoryPo.getSteady_record_id());
+            vos.add(new CorporationESGScoreVo(po));
+        }
+        return new ResultVO<>(Constant.REQUEST_SUCCESS,"success",vos);
+    }
+
+    @Override
+    public ResultVO<List<CorporationFactorVo>> getFactors(int corporation_id) {
+        List<CorporationFactorPo> pos=corporationFactorMapper.getByCorporationId(corporation_id);
+        List<CorporationFactorVo> vos=new ArrayList<>();
+        for (CorporationFactorPo po : pos) {
+            vos.add(new CorporationFactorVo(po));
+        }
+        return new ResultVO<>(Constant.REQUEST_SUCCESS,"success",vos);
+    }
+
+    @Override
+    public ResultVO<List<FactorVo>> getTopFactors(int corporation_id, String type) {
+        return null;
+    }
+
+
 }

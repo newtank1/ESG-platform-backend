@@ -11,6 +11,8 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -33,32 +35,15 @@ public class SearchServiceImpl implements SearchService {
     }
 
     @Override
-    public ResultVO<List<CorporationInfoVo>> getBySearching(String name, String industry, String location) {
+    public ResultVO<List<CorporationInfoVo>> getBySearching(String name, String industry, String location,double rate) {
         List<CorporationInfoPo> corporationInfoPos=corporationInfoMapper.getCorporationBySearching(name,industry,location);
         List<CorporationInfoVo> corporationInfoVos=new ArrayList<>();
         for (CorporationInfoPo po : corporationInfoPos) {
+            po.setESG_weighted_score(po.getESG_risky_score()*rate+po.getESG_steady_score()*(1-rate));
             corporationInfoVos.add(new CorporationInfoVo(po));
         }
+        Collections.sort(corporationInfoVos);
         return new ResultVO<>(Constant.REQUEST_SUCCESS,"success",corporationInfoVos);
     }
 
-    @Override
-    public ResultVO<List<CorporationInfoVo>> getByTotalRanking(int limit) {
-        List<CorporationInfoPo> corporationInfoPos=corporationInfoMapper.getCorporationByTotalRanking(limit);
-        List<CorporationInfoVo> corporationInfoVos=new ArrayList<>();
-        for (CorporationInfoPo po : corporationInfoPos) {
-            corporationInfoVos.add(new CorporationInfoVo(po));
-        }
-        return new ResultVO<>(Constant.REQUEST_SUCCESS,"success",corporationInfoVos);
-    }
-
-    @Override
-    public ResultVO<List<CorporationInfoVo>> getByIndustryRanking(String industry, int limit) {
-        List<CorporationInfoPo> corporationInfoPos=corporationInfoMapper.getCorporationByIndustryRanking(industry,limit);
-        List<CorporationInfoVo> corporationInfoVos=new ArrayList<>();
-        for (CorporationInfoPo po : corporationInfoPos) {
-            corporationInfoVos.add(new CorporationInfoVo(po));
-        }
-        return new ResultVO<>(Constant.REQUEST_SUCCESS,"success",corporationInfoVos);
-    }
 }

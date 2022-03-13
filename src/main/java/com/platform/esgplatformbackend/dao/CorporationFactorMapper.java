@@ -12,7 +12,7 @@ import java.util.List;
 public interface CorporationFactorMapper {
 
     @Select("select * from corporation_factor where corporation_id=#{corporation_id}")
-    CorporationFactorPo getByCorporationId(Integer corporation_id);
+    List<CorporationFactorPo> getByCorporationId(Integer corporation_id);
 
     @Select("select * from corporation_factor where industry=#{industry}")
     List<CorporationFactorPo> getByIndustry(String industry);

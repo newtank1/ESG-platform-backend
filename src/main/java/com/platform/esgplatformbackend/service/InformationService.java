@@ -20,7 +20,15 @@ public interface InformationService {
 
     ResultVO<CorporationInfoVo> getNormalInformationById(int corporation_id);
 
-    ResultVO<List<CorporationESGScoreVo>> getESGHistory(int corporation_id);
+    ResultVO<CorporationESGScoreVo> getLatestRiskyScore(int corporation_id);
 
-    ResultVO<CorporationESGScoreVo> getLatestHistory(int corporation_id);
+    ResultVO<List<CorporationESGScoreVo>> getRiskyScores(int corporation_id,int day);
+
+    ResultVO<CorporationESGScoreVo> getLatestSteadyScore(int corporation_id);
+
+    ResultVO<List<CorporationESGScoreVo>> getSteadyScores(int corporation_id,int day);
+
+    ResultVO<List<CorporationFactorVo>> getFactors(int corporation_id);
+
+    ResultVO<List<FactorVo>> getTopFactors(int corporation_id,String type);
 }
