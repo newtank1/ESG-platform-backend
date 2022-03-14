@@ -45,4 +45,29 @@ public class AdminController {
     public ResultVO<List<CorporationESGScoreVo>> getESGHistory(@PathVariable Integer corporation_id){
         return service.getESGScore(corporation_id);
     }
+
+    @PostMapping("/esg")
+    public ResultVO<CorporationESGVo> addESG(CorporationESGVo vo){
+        return service.addESG(vo);
+    }
+
+    @PutMapping("/esg")
+    public ResultVO<CorporationESGVo> updateESG(CorporationESGVo vo){
+        return service.updateESG(vo);
+    }
+
+    @PutMapping("/esgHistory")
+    public ResultVO<CorporationESGHistoryVo> submitESGHistory(CorporationESGHistoryVo vo){
+        return service.submitESGHistory(vo);
+    }
+
+    @PostMapping("/esgHistory")
+    public ResultVO<CorporationESGHistoryVo> addESGHistory(CorporationESGHistoryVo vo){
+        return service.addESGHistory(vo);
+    }
+
+    @PostMapping("/score")
+    public ResultVO<CorporationESGScoreVo> submitScore(CorporationESGScoreVo vo){
+        return service.submitScore(vo);
+    }
 }

@@ -26,7 +26,7 @@ public class SearchController {
     public ResultVO<List<CorporationInfoVo>> getBySearching(@RequestParam(name="name",required = false) String name,
                                                             @RequestParam(name="industry",required = false) String industry,
                                                             @RequestParam(name="location",required = false) String location,
-                                                            @RequestParam(name="rate",required = true) double rate){
+                                                            @RequestParam(name="rate") double rate){
         return searchService.getBySearching(name,industry,location,rate);
     }
 }

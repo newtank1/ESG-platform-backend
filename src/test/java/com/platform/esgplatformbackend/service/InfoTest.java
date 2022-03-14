@@ -65,15 +65,6 @@ public class InfoTest {
         assertEquals(0,informationService.getRecentStockByCorporationId(corporation_id,7).getData().size());
     }
 
-    @Test
-    @Transactional
-    void getInfo(){
-        ResultVO<CorporationInfoVo> infoVoResultVO=informationService.getNormalInformationById(corporation_id);
-        assertEquals(Constant.REQUEST_SUCCESS,infoVoResultVO.getCode());
-
-        CorporationInfoVo info=infoVoResultVO.getData();
-        assertEquals("xya",info.getName());
-    }
 
     @Test
     void getTopFactors(){
