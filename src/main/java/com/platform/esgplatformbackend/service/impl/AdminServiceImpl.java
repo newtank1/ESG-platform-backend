@@ -32,7 +32,7 @@ public class AdminServiceImpl implements AdminService {
     @Override
     public ResultVO<CorporationBasicVo> addCorporation(CorporationBasicVo corp) {
         CorporationBasicPo po = corporationBasicMapper.getCorporationByName(corp.getName());
-        if(po!=null) return new ResultVO<>(Constant.REQUEST_FAIL, "公司已创建");
+        if(po!=null) return new ResultVO<>(Constant.REQUEST_FAIL, "公司已创建",new CorporationBasicVo(po));
         po=new CorporationBasicPo(corp);
         int insert = corporationBasicMapper.insert(po);
         if(insert==1) return new ResultVO<>(Constant.REQUEST_SUCCESS,"创建公司成功", new CorporationBasicVo(po));
@@ -57,7 +57,7 @@ public class AdminServiceImpl implements AdminService {
     public ResultVO<CorporationESGVo> addESG(CorporationESGVo vo) {
         CorporationESGPo po=corporationESGMapper.getESGByCorporationId(vo.getCorporation_id());
         if (po != null) {
-            return new ResultVO<>(Constant.REQUEST_FAIL, "公司ESG信息已存在");
+            return new ResultVO<>(Constant.REQUEST_FAIL, "公司ESG信息已存在",new CorporationESGVo(po));
         }
         po=new CorporationESGPo(vo);
         int insert=corporationESGMapper.insert(po);

@@ -9,11 +9,11 @@ import java.util.List;
 @Repository
 @Mapper
 public interface CorporationHistoryMapper {
-    @Insert("insert into corporation_esg_history values(#{corporation_id},#{record_id},#{time},#{steady_record_id},#{risky_record_od})")
+    @Insert("insert into corporation_esg_history values(#{corporation_id},#{record_id},#{time},#{steady_record_id},#{risky_record_id})")
     @Options(useGeneratedKeys = true,keyProperty = "record_id")
     int insert(CorporationESGHistoryPo po);
 
-    @Update("update corporation_esg_history set time=#{time},steady_record_id=#{steady_record_id},risky_record_id=#{risky_record_id} where corporation_id=#{corporation_id}")
+    @Update("update corporation_esg_history set time=#{time},steady_record_id=#{steady_record_id},risky_record_id=#{risky_record_id} where record_id=#{record_id}")
     int update(CorporationESGHistoryPo po);
 
     @Select("select * from corporation_esg where record_id=#{record_id}")
