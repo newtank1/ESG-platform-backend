@@ -28,14 +28,14 @@ public class AdminServiceImpl implements AdminService {
     @Resource
     private CorporationESGScoreMapper corporationESGScoreMapper;
     @Resource
-    private CorporationInfoMapper corporationInfoMapper;
+    private CorporationHistoryMapper corporationHistoryMapper;
     @Override
     public ResultVO<CorporationBasicVo> addCorporation(CorporationBasicVo corp) {
         CorporationBasicPo po = corporationBasicMapper.getCorporationByName(corp.getName());
         if(po!=null) return new ResultVO<>(Constant.REQUEST_FAIL, "公司已创建");
-
-        int insert = corporationBasicMapper.insert(new CorporationBasicPo(corp));
-        if(insert==1) return new ResultVO<>(Constant.REQUEST_SUCCESS,"创建公司成功", corp);
+        po=new CorporationBasicPo(corp);
+        int insert = corporationBasicMapper.insert(po);
+        if(insert==1) return new ResultVO<>(Constant.REQUEST_SUCCESS,"创建公司成功", new CorporationBasicVo(po));
         else return new ResultVO<>(Constant.REQUEST_FAIL, "创建公司失败");
     }
 
@@ -53,38 +53,48 @@ public class AdminServiceImpl implements AdminService {
         else return new ResultVO<>(Constant.REQUEST_FAIL, "更新公司基本信息失败");
     }
 
-    // TODO
-    public ResultVO<CorporationESGVo> submitESG(CorporationESGScoreVo vo) {
-        /*CorporationESGPo po = new CorporationESGPo(vo);
-        int line = corporationESGMapper.insert(new CorporationESGPo(vo));
-        if(line==1){
-            return new ResultVO<>(Constant.REQUEST_SUCCESS, "提交ESG信息成功", vo);
-        }else{
-            return new ResultVO<>(Constant.REQUEST_FAIL, "提交ESG信息失败");
-        }*/
-        /*CorporationESGScorePo po=new CorporationESGScorePo(vo);
-        int line= corporationESGScoreMapper.insert(po);
-        if(line==0) return new ResultVO<>(Constant.REQUEST_FAIL, "提交ESG信息失败");
-        int corporation_id=(int)vo.getCorporation_id();
-        Date time=corporationInfoMapper.getCorporationById(corporation_id).getTime();
-        if(time.before(vo.getTime())) {
-            corporationESGMapper.update(0,0,po.getRecord_id(),corporation_id);
-            String industry = corporationBasicMapper.getCorporationById(corporation_id).getIndustry();
-            List<CorporationInfoPo> corporationTotalInfoPos=corporationInfoMapper.getScoreByTotal();
-            List<CorporationInfoPo> corporationIndustryInfoPos=corporationInfoMapper.getScoreByIndustry(industry);
-            for (CorporationInfoPo corporationTotalInfoPo : corporationTotalInfoPos) {
-                int total_rank=corporationTotalInfoPos.indexOf(corporationTotalInfoPo)+1;
-                int industry_rank=corporationTotalInfoPo.getESG_industry_ranking();
-                if(corporationIndustryInfoPos.contains(corporationTotalInfoPo))
-                    industry_rank=corporationIndustryInfoPos.indexOf(corporationTotalInfoPo)+1;
-                int po_corporation_id=corporationTotalInfoPo.getCorporation_id();
-                int record_id=corporationTotalInfoPo.getRecord_id();
-                corporationESGMapper.update(total_rank,industry_rank,record_id,po_corporation_id);
-            }
+    @Override
+    public ResultVO<CorporationESGVo> addESG(CorporationESGVo vo) {
+        CorporationESGPo po=corporationESGMapper.getESGByCorporationId(vo.getCorporation_id());
+        if (po != null) {
+            return new ResultVO<>(Constant.REQUEST_FAIL, "公司ESG信息已存在");
         }
-        return new ResultVO<>(Constant.REQUEST_SUCCESS, "提交ESG信息成功", new CorporationESGVo(corporationESGMapper.getESGByCorporationId(corporation_id)));*/
-        return null;
+        po=new CorporationESGPo(vo);
+        int insert=corporationESGMapper.insert(po);
+        if(insert==1) return new ResultVO<>(Constant.REQUEST_SUCCESS,"成功",new CorporationESGVo(po));
+        return new ResultVO<>(Constant.REQUEST_FAIL, "失败");
     }
+
+    @Override
+    public ResultVO<CorporationESGVo> updateESG(CorporationESGVo vo) {
+        int update=corporationESGMapper.update(vo.getRecord_id(), vo.getCorporation_id());
+        if(update==1) return new ResultVO<>(Constant.REQUEST_SUCCESS,"成功",vo);
+        return new ResultVO<>(Constant.REQUEST_FAIL, "失败");
+    }
+
+    @Override
+    public ResultVO<CorporationESGHistoryVo> submitESGHistory(CorporationESGHistoryVo vo) {
+        int update=corporationHistoryMapper.update(new CorporationESGHistoryPo(vo));
+        if(update==1) return new ResultVO<>(Constant.REQUEST_SUCCESS,"成功",vo);
+        return new ResultVO<>(Constant.REQUEST_FAIL, "失败");
+    }
+
+    @Override
+    public ResultVO<CorporationESGHistoryVo> addESGHistory(CorporationESGHistoryVo vo) {
+        CorporationESGHistoryPo po=new CorporationESGHistoryPo(vo);
+        int insert=corporationHistoryMapper.insert(po);
+        if(insert==1) return new ResultVO<>(Constant.REQUEST_SUCCESS,"成功",new CorporationESGHistoryVo(po));
+        return new ResultVO<>(Constant.REQUEST_FAIL, "失败");
+    }
+
+    @Override
+    public ResultVO<CorporationESGScoreVo> submitScore(CorporationESGScoreVo vo) {
+        CorporationESGScorePo po=new CorporationESGScorePo(vo);
+        int insert=corporationESGScoreMapper.insert(po);
+        if(insert==1) return new ResultVO<>(Constant.REQUEST_SUCCESS,"成功",new CorporationESGScoreVo(po));
+        return new ResultVO<>(Constant.REQUEST_FAIL, "失败");
+    }
+
 
     @Override
     public ResultVO<CorporationOpinionVo> submitOpinion(CorporationOpinionVo vo) {
@@ -117,12 +127,12 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
-    public List<CorporationESGScoreVo> getESGHistory(Integer corporation_id) {
+    public ResultVO<List<CorporationESGScoreVo>> getESGScore(Integer corporation_id) {
         List<CorporationESGScorePo> pos = corporationESGScoreMapper.getByCorporationId(corporation_id);
         List<CorporationESGScoreVo> res=new ArrayList<>();
         for (CorporationESGScorePo po : pos) {
             res.add(new CorporationESGScoreVo(po));
         }
-        return res;
+        return new ResultVO<>(Constant.REQUEST_SUCCESS,"success",res);
     }
 }

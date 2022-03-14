@@ -76,15 +76,7 @@ public class InfoTest {
     }
 
     @Test
-    @Transactional
-    void getHistory(){
-        ResultVO<List<CorporationESGScoreVo>> allHistory=informationService.getESGHistory(corporation_id);
-        assertEquals(Constant.REQUEST_SUCCESS,allHistory.getCode());
-        assertEquals(2,allHistory.getData().size());
-
-        CorporationESGVo vo=new CorporationESGVo(corporationESGMapper.getESGByCorporationId(corporation_id));
-        ResultVO<CorporationESGScoreVo> recent=informationService.getLatestHistory(corporation_id);
-
-        assertEquals(5,recent.getData().getESG_total_score());
+    void getTopFactors(){
+        informationService.getTopFactors(1,"risky",5);
     }
 }

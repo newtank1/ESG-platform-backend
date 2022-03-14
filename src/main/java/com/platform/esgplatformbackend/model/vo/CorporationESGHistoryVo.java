@@ -1,6 +1,7 @@
 package com.platform.esgplatformbackend.model.vo;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.platform.esgplatformbackend.model.po.CorporationESGHistoryPo;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -30,7 +31,7 @@ public class CorporationESGHistoryVo {
     @JsonProperty(value = "risky_record_id")
     private Integer risky_record_id;
 
-    public CorporationESGHistoryVo(CorporationESGHistoryVo po){
+    public CorporationESGHistoryVo(CorporationESGHistoryPo po){
         BeanUtils.copyProperties(po,this);
     }
 }

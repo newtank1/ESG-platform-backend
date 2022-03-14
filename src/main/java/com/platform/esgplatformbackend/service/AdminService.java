@@ -7,9 +7,13 @@ import java.util.List;
 public interface AdminService {
     ResultVO<CorporationBasicVo> addCorporation(CorporationBasicVo corp);
     ResultVO<CorporationBasicVo> updateCorporationBasic(CorporationBasicVo corp);
-    ResultVO<CorporationESGVo> submitESG(CorporationESGScoreVo vo);
+    ResultVO<CorporationESGVo> addESG(CorporationESGVo vo);
+    ResultVO<CorporationESGVo> updateESG(CorporationESGVo vo);
+    ResultVO<CorporationESGHistoryVo> submitESGHistory(CorporationESGHistoryVo vo);
+    ResultVO<CorporationESGHistoryVo> addESGHistory(CorporationESGHistoryVo vo);
+    ResultVO<CorporationESGScoreVo> submitScore(CorporationESGScoreVo vo);
     ResultVO<CorporationOpinionVo> submitOpinion(CorporationOpinionVo vo);
     ResultVO<CorporationEventVo> submitEvent(CorporationEventVo vo);
     ResultVO<CorporationStockVo> submitStock(CorporationStockVo vo);
-    List<CorporationESGScoreVo> getESGHistory(Integer corporation_id);
+    ResultVO<List<CorporationESGScoreVo>> getESGScore(Integer corporation_id);
 }

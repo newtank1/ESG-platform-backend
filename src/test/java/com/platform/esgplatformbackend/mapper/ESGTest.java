@@ -44,20 +44,9 @@ public class ESGTest {
     }
 
     @Test
-    @Order(2)
-    void getBySort(){
-        List<CorporationESGPo> list=corporationESGMapper.getESGByTotalRanking(3);
-        System.out.println(list);
-        CorporationESGPo po1=corporationESGMapper.getESGByCorporationId(4);
-        CorporationESGPo po2=corporationESGMapper.getESGByCorporationId(corporation_id);
-        assertTrue(list.contains(po2));
-        assertFalse(list.contains(po1));
-    }
-
-    @Test
     @Order(3)
     void update(){
-        assertEquals(1,corporationESGMapper.update(9,9,record_id,esg_id));
+        assertEquals(1,corporationESGMapper.update(9,9));
     }
 
     @Test

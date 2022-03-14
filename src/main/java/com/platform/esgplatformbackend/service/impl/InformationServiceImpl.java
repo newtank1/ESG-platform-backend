@@ -8,8 +8,8 @@ import com.platform.esgplatformbackend.util.Constant;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.ArrayList;
-import java.util.List;
+import java.lang.reflect.Field;
+import java.util.*;
 
 @Service
 public class InformationServiceImpl implements InformationService {
@@ -161,8 +161,54 @@ public class InformationServiceImpl implements InformationService {
     }
 
     @Override
-    public ResultVO<List<FactorVo>> getTopFactors(int corporation_id, String type) {
-        return null;
+    public ResultVO<List<FactorVo>> getTopFactors(int corporation_id, String type,int limit) {
+        CorporationFactorPo corporationFactor=corporationFactorMapper.getByCorporationIdAndType(corporation_id,type);
+        List<CorporationFactorPo> pos=corporationFactorMapper.getByIndustryAndType(corporationFactor.getIndustry(),type);
+        Map<String,FactorRankVo> map=new HashMap<>();
+
+        Class<?> factorClass=corporationFactor.getClass();
+        Field[] factors= factorClass.getDeclaredFields();
+        for (Field factor : factors) {
+            String name=factor.getName();
+            if(name.startsWith("s_")||name.startsWith("e_")||name.startsWith("g_")){
+                factor.setAccessible(true);
+                FactorRankVo rankVo=new FactorRankVo(name,0,0);
+                map.put(name,rankVo);
+            }
+        }
+
+        for (CorporationFactorPo po : pos) {
+            for (String factorName : map.keySet()) {
+                try {
+                    Field factor=factorClass.getDeclaredField(factorName);
+                    factor.setAccessible(true);
+                    Double poValue=(Double) factor.get(po);
+                    map.get(factorName).addSum(poValue);
+                    if(poValue.compareTo((Double) factor.get(corporationFactor))>0){
+                        map.get(factorName).addRank();
+                    }
+                } catch (IllegalAccessException | NoSuchFieldException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        List<FactorRankVo> rankVos=new ArrayList<>(map.values());
+        rankVos.sort(Comparator.comparing(FactorRankVo::getRank));
+        List<FactorVo> result=new ArrayList<>();
+        for(int i=0;i<limit&&i<rankVos.size();i++){
+            try {
+                FactorRankVo vo = rankVos.get(i);
+                Field factor = factorClass.getDeclaredField(vo.name);
+                factor.setAccessible(true);
+                Double value = (Double) factor.get(corporationFactor);
+                int count=pos.size();
+                result.add(new FactorVo(vo.name,value,value.compareTo(vo.sum/count)>0 ));
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+        return new ResultVO<>(Constant.REQUEST_SUCCESS,"success",result);
     }
 
 

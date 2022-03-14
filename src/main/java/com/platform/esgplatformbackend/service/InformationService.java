@@ -30,5 +30,5 @@ public interface InformationService {
 
     ResultVO<List<CorporationFactorVo>> getFactors(int corporation_id);
 
-    ResultVO<List<FactorVo>> getTopFactors(int corporation_id,String type);
+    ResultVO<List<FactorVo>> getTopFactors(int corporation_id,String type,int limit);
 }
