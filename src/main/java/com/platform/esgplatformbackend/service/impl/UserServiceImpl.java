@@ -29,7 +29,7 @@ public class UserServiceImpl implements UserService {
     private UserInterestMapper userInterestMapper;
 
     @Resource
-    CorporationBasicMapper corporationBasicMapper;
+    private CorporationBasicMapper corporationBasicMapper;
 
 
     @Override

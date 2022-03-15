@@ -64,7 +64,7 @@ public class InfoController {
     }
 
     @GetMapping("/factors/{corporation_id}")
-    public ResultVO<List<FactorVo>> getTopFactors(@PathVariable Integer corporation_id,
+    public ResultVO<List<List<FactorVo>>> getTopFactors(@PathVariable Integer corporation_id,
                                                              @RequestParam(name="type") String type,
                                                              @RequestParam(name="limit",required = false) Integer limit){
         if (limit == null) {

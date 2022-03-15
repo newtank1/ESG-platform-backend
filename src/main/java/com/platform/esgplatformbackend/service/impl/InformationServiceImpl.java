@@ -161,7 +161,7 @@ public class InformationServiceImpl implements InformationService {
     }
 
     @Override
-    public ResultVO<List<FactorVo>> getTopFactors(int corporation_id, String type,int limit) {
+    public ResultVO<List<List<FactorVo>>> getTopFactors(int corporation_id, String type,int limit) {
         CorporationFactorPo corporationFactor=corporationFactorMapper.getByCorporationIdAndType(corporation_id,type);
         List<CorporationFactorPo> pos=corporationFactorMapper.getByIndustryAndType(corporationFactor.getIndustry(),type);
         Map<String,FactorRankVo> map=new HashMap<>();
@@ -195,20 +195,36 @@ public class InformationServiceImpl implements InformationService {
 
         List<FactorRankVo> rankVos=new ArrayList<>(map.values());
         rankVos.sort(Comparator.comparing(FactorRankVo::getRank));
-        List<FactorVo> result=new ArrayList<>();
+        List<List<FactorVo>> result=new ArrayList<>();
+        List<FactorVo> topFactors=new ArrayList<>();
         for(int i=0;i<limit&&i<rankVos.size();i++){
             try {
                 FactorRankVo vo = rankVos.get(i);
-                Field factor = factorClass.getDeclaredField(vo.name);
-                factor.setAccessible(true);
-                Double value = (Double) factor.get(corporationFactor);
-                int count=pos.size();
-                result.add(new FactorVo(vo.name,value,value.compareTo(vo.sum/count)>0 ));
+                filterFactors(corporationFactor, pos, factorClass, topFactors, vo);
             }catch (Exception e){
                 e.printStackTrace();
             }
         }
+        result.add(topFactors);
+        List<FactorVo> worstFactors=new ArrayList<>();
+        for(int i=0;i<limit&&i<rankVos.size();i++){
+            try {
+                FactorRankVo vo = rankVos.get(rankVos.size()-i-1);
+                filterFactors(corporationFactor, pos, factorClass, worstFactors, vo);
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+        result.add(worstFactors);
         return new ResultVO<>(Constant.REQUEST_SUCCESS,"success",result);
+    }
+
+    private void filterFactors(CorporationFactorPo corporationFactor, List<CorporationFactorPo> pos, Class<?> factorClass, List<FactorVo> factorList, FactorRankVo vo) throws NoSuchFieldException, IllegalAccessException {
+        Field factor = factorClass.getDeclaredField(vo.name);
+        factor.setAccessible(true);
+        Double value = (Double) factor.get(corporationFactor);
+        int count=pos.size();
+        factorList.add(new FactorVo(vo.name,value,value.compareTo(vo.sum/count)>0 ));
     }
 
 

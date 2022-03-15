@@ -34,6 +34,9 @@ public class AdminServiceImpl implements AdminService {
         CorporationBasicPo po = corporationBasicMapper.getCorporationByName(corp.getName());
         if(po!=null) return new ResultVO<>(Constant.REQUEST_FAIL, "公司已创建",new CorporationBasicVo(po));
         po=new CorporationBasicPo(corp);
+        if (po.getIntroduction() == null) {
+            po.setIntroduction("null");
+        }
         int insert = corporationBasicMapper.insert(po);
         if(insert==1) return new ResultVO<>(Constant.REQUEST_SUCCESS,"创建公司成功", new CorporationBasicVo(po));
         else return new ResultVO<>(Constant.REQUEST_FAIL, "创建公司失败");
@@ -47,6 +50,9 @@ public class AdminServiceImpl implements AdminService {
         String industry = corp.getIndustry();
         String location = corp.getLocation();
         String introduction=corp.getIntroduction();
+        if (introduction == null) {
+            introduction="null";
+        }
         int update = corporationBasicMapper.update(name,stoke,industry,location,corporation_id,introduction);
 
         if(update==1) return new ResultVO<>(Constant.REQUEST_SUCCESS, "更新公司基本信息成功", corp);

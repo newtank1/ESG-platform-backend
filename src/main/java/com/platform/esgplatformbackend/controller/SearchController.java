@@ -1,5 +1,6 @@
 package com.platform.esgplatformbackend.controller;
 
+import com.platform.esgplatformbackend.model.vo.CorporationESGScoreVo;
 import com.platform.esgplatformbackend.model.vo.CorporationInfoVo;
 import com.platform.esgplatformbackend.model.vo.ResultVO;
 import com.platform.esgplatformbackend.service.SearchService;
@@ -28,5 +29,10 @@ public class SearchController {
                                                             @RequestParam(name="location",required = false) String location,
                                                             @RequestParam(name="rate") double rate){
         return searchService.getBySearching(name,industry,location,rate);
+    }
+
+    @GetMapping("/name/{name}")
+    public ResultVO<List<CorporationESGScoreVo>> getByName(@PathVariable String name){
+        return searchService.getByName(name);
     }
 }
