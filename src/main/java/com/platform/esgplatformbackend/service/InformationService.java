@@ -31,4 +31,6 @@ public interface InformationService {
     ResultVO<List<CorporationFactorVo>> getFactors(int corporation_id);
 
     ResultVO<List<List<FactorVo>>> getTopFactors(int corporation_id,String type,int limit);
+
+    ResultVO<String> getRank(int corporation_id,String type);
 }

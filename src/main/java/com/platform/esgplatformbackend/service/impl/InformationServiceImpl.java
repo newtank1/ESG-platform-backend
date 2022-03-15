@@ -219,6 +219,24 @@ public class InformationServiceImpl implements InformationService {
         return new ResultVO<>(Constant.REQUEST_SUCCESS,"success",result);
     }
 
+    @Override
+    public ResultVO<String> getRank(int corporation_id, String type) {
+        CorporationInfoPo cor=corporationInfoMapper.getCorporationById(corporation_id);
+        List<CorporationInfoPo> pos=corporationInfoMapper.getCorporationBySearching(cor.getName(),cor.getIndustry(),null);
+        int rank=1;
+        for (CorporationInfoPo po : pos) {
+            if("risky".equals(type)){
+                if(po.getESG_risky_score()>cor.getESG_risky_score()) rank++;
+            }
+            else if("steady".equals(type)){
+                if(po.getESG_steady_score()>cor.getESG_steady_score()) rank++;
+            }
+        }
+        int length=pos.size();
+        String res=rank+"/"+length;
+        return new ResultVO<>(Constant.REQUEST_SUCCESS,"success",res);
+    }
+
     private void filterFactors(CorporationFactorPo corporationFactor, List<CorporationFactorPo> pos, Class<?> factorClass, List<FactorVo> factorList, FactorRankVo vo) throws NoSuchFieldException, IllegalAccessException {
         Field factor = factorClass.getDeclaredField(vo.name);
         factor.setAccessible(true);
@@ -226,6 +244,8 @@ public class InformationServiceImpl implements InformationService {
         int count=pos.size();
         factorList.add(new FactorVo(vo.name,value,value.compareTo(vo.sum/count)>0 ));
     }
+
+
 
 
 }

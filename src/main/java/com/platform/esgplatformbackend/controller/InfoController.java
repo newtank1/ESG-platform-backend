@@ -77,4 +77,9 @@ public class InfoController {
     public ResultVO<List<CorporationFactorVo>> getFactors(@PathVariable Integer corporation_id){
         return informationService.getFactors(corporation_id);
     }
+
+    @GetMapping("/rank/{corporation_id}")
+    public ResultVO<String> getRank(@PathVariable Integer corporation_id,@RequestParam(name="type") String type){
+        return informationService.getRank(corporation_id,type);
+    }
 }
