@@ -28,9 +28,9 @@ public interface InformationService {
 
     ResultVO<List<CorporationESGScoreVo>> getSteadyScores(int corporation_id,int day);
 
-    ResultVO<List<CorporationFactorVo>> getFactors(int corporation_id);
+    ResultVO<List<CorporationSecondFactorVo>> getFactors(int corporation_id);
 
-    ResultVO<List<List<FactorVo>>> getTopFactors(int corporation_id,String type,int limit);
+    ResultVO<List<List<FactorVo>>> getTopFactors(int corporation_id,String type,int limit,String level);
 
     ResultVO<String> getRank(int corporation_id,String type);
 }

@@ -66,15 +66,16 @@ public class InfoController {
     @GetMapping("/factors/{corporation_id}")
     public ResultVO<List<List<FactorVo>>> getTopFactors(@PathVariable Integer corporation_id,
                                                              @RequestParam(name="type") String type,
-                                                             @RequestParam(name="limit",required = false) Integer limit){
+                                                             @RequestParam(name="limit",required = false) Integer limit,
+                                                        @RequestParam(name="level") String level){
         if (limit == null) {
             limit=5;
         }
-        return  informationService.getTopFactors(corporation_id,type,limit);
+        return  informationService.getTopFactors(corporation_id,type,limit,level);
     }
 
     @GetMapping("/allFactors/{corporation_id}")
-    public ResultVO<List<CorporationFactorVo>> getFactors(@PathVariable Integer corporation_id){
+    public ResultVO<List<CorporationSecondFactorVo>> getFactors(@PathVariable Integer corporation_id){
         return informationService.getFactors(corporation_id);
     }
 

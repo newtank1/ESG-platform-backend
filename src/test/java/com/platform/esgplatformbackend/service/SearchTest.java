@@ -21,12 +21,12 @@ public class SearchTest {
 
     static int corporation_id=1;
 
-    @Test
-    void getById(){
-        ResultVO<CorporationInfoVo> resultVO=searchService.getById(corporation_id);
-        assertEquals(Constant.REQUEST_SUCCESS,resultVO.getCode());
-        assertEquals("xya",resultVO.getData().getName());
-    }
+//    @Test
+//    void getById(){
+//        ResultVO<CorporationInfoVo> resultVO=searchService.getById(corporation_id);
+//        assertEquals(Constant.REQUEST_SUCCESS,resultVO.getCode());
+//        assertEquals("xya",resultVO.getData().getName());
+//    }
 
 
 }

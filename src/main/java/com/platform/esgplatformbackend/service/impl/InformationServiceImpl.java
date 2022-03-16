@@ -30,13 +30,16 @@ public class InformationServiceImpl implements InformationService {
     private CorporationInfoMapper corporationInfoMapper;
 
     @Resource
-    private CorporationFactorMapper corporationFactorMapper;
+    private CorporationSecondFactorMapper corporationSecondFactorMapper;
 
     @Resource
     private CorporationESGMapper corporationESGMapper;
 
     @Resource
     private CorporationHistoryMapper corporationHistoryMapper;
+
+    @Resource
+    private CorporationThirdFactorMapper corporationThirdFactorMapper;
 
     @Override
     public ResultVO<List<CorporationEventVo>> getAllEventsByCorporationId(int corporation_id) {
@@ -151,19 +154,28 @@ public class InformationServiceImpl implements InformationService {
     }
 
     @Override
-    public ResultVO<List<CorporationFactorVo>> getFactors(int corporation_id) {
-        List<CorporationFactorPo> pos=corporationFactorMapper.getByCorporationId(corporation_id);
-        List<CorporationFactorVo> vos=new ArrayList<>();
-        for (CorporationFactorPo po : pos) {
-            vos.add(new CorporationFactorVo(po));
+    public ResultVO<List<CorporationSecondFactorVo>> getFactors(int corporation_id) {
+        List<CorporationSecondFactorPo> pos= corporationSecondFactorMapper.getByCorporationId(corporation_id);
+        List<CorporationSecondFactorVo> vos=new ArrayList<>();
+        for (CorporationSecondFactorPo po : pos) {
+            vos.add(new CorporationSecondFactorVo(po));
         }
         return new ResultVO<>(Constant.REQUEST_SUCCESS,"success",vos);
     }
 
     @Override
-    public ResultVO<List<List<FactorVo>>> getTopFactors(int corporation_id, String type,int limit) {
-        CorporationFactorPo corporationFactor=corporationFactorMapper.getByCorporationIdAndType(corporation_id,type);
-        List<CorporationFactorPo> pos=corporationFactorMapper.getByIndustryAndType(corporationFactor.getIndustry(),type);
+    public ResultVO<List<List<FactorVo>>> getTopFactors(int corporation_id, String type,int limit,String level) {
+        CorporationFactorPo corporationFactor=null;
+        List<CorporationFactorPo> pos=new ArrayList<>();
+        if("second".equals(level)) {
+            corporationFactor= corporationSecondFactorMapper.getByCorporationIdAndType(corporation_id, type);
+            pos=new ArrayList<>(corporationSecondFactorMapper.getByIndustryAndType(corporationFactor.getIndustry(),type));
+        }if("third".equals(level)) {
+            corporationFactor=corporationThirdFactorMapper.getByCorporationIdAndType(corporation_id, type);
+            pos=new ArrayList<>(corporationThirdFactorMapper.getByIndustryAndType(corporationFactor.getIndustry(),type));
+        }
+
+
         Map<String,FactorRankVo> map=new HashMap<>();
 
         Class<?> factorClass=corporationFactor.getClass();
@@ -219,6 +231,7 @@ public class InformationServiceImpl implements InformationService {
         return new ResultVO<>(Constant.REQUEST_SUCCESS,"success",result);
     }
 
+
     @Override
     public ResultVO<String> getRank(int corporation_id, String type) {
         CorporationInfoPo cor=corporationInfoMapper.getCorporationById(corporation_id);
@@ -242,7 +255,7 @@ public class InformationServiceImpl implements InformationService {
         factor.setAccessible(true);
         Double value = (Double) factor.get(corporationFactor);
         int count=pos.size();
-        factorList.add(new FactorVo(vo.name,value,value.compareTo(vo.sum/count)>0 ));
+        factorList.add(new FactorVo(vo.name,value,value.compareTo(vo.sum/count)>0,(vo.sum*1.0)/count ));
     }
 
 

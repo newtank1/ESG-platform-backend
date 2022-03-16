@@ -11,4 +11,5 @@ public class FactorVo {
     private String name;
     private Double score;
     private boolean overAverage;
+    private Double ratio;
 }

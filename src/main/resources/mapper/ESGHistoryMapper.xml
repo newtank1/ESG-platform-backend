@@ -9,60 +9,60 @@
         <result column="E_score" jdbcType="DOUBLE" property="e_score" />
         <result column="S_score" jdbcType="DOUBLE" property="s_score" />
         <result column="G_score" jdbcType="DOUBLE" property="g_score" />
-        <result column="e_punished" jdbcType="INTEGER" property="e_punished" />
-        <result column="e_have_accidents" jdbcType="INTEGER" property="e_have_accidents" />
-        <result column="e_monitored" jdbcType="INTEGER" property="e_monitored" />
-        <result column="e_publish_idea" jdbcType="INTEGER" property="e_publish_idea" />
-        <result column="e_publish_goal" jdbcType="INTEGER" property="e_publish_goal" />
-        <result column="e_publish_regulation" jdbcType="INTEGER" property="e_publish_regulation" />
-        <result column="e_use_emergency" jdbcType="INTEGER" property="e_use_emergency" />
-        <result column="e_three_wastes_measure" jdbcType="INTEGER" property="e_three_wastes_measure" />
-        <result column="e_education" jdbcType="INTEGER" property="e_education" />
-        <result column="e_investment" jdbcType="DECIMAL" property="e_investment" />
-        <result column="e_recycle_eco" jdbcType="INTEGER" property="e_recycle_eco" />
-        <result column="e_save_resource" jdbcType="INTEGER" property="e_save_resource" />
-        <result column="e_green_office" jdbcType="INTEGER" property="e_green_office" />
-        <result column="e_invention" jdbcType="INTEGER" property="e_invention" />
-        <result column="e_useful_invention" jdbcType="INTEGER" property="e_useful_invention" />
-        <result column="e_action" jdbcType="INTEGER" property="e_action" />
-        <result column="e_product" jdbcType="INTEGER" property="e_product" />
-        <result column="e_certification" jdbcType="INTEGER" property="e_certification" />
-        <result column="e_award" jdbcType="INTEGER" property="e_award" />
-        <result column="e_pollution" jdbcType="INTEGER" property="e_pollution" />
-        <result column="s_poverty_alleviation_amount" jdbcType="DECIMAL" property="s_poverty_alleviation_amount" />
-        <result column="s_poverty_escape" jdbcType="INTEGER" property="s_poverty_escape" />
-        <result column="s_poverty_future_plan" jdbcType="INTEGER" property="s_poverty_future_plan" />
-        <result column="s_poverty_activity" jdbcType="INTEGER" property="s_poverty_activity" />
-        <result column="s_publish_staff_protection" jdbcType="INTEGER" property="s_publish_staff_protection" />
-        <result column="s_publish_supplier_protection" jdbcType="INTEGER" property="s_publish_supplier_protection" />
-        <result column="s_publish_responsibility" jdbcType="INTEGER" property="s_publish_responsibility" />
-        <result column="s_publish_responsibility_construction" jdbcType="INTEGER" property="s_publish_responsibility_construction" />
-        <result column="s_publish_safe_production" jdbcType="INTEGER" property="s_publish_safe_production" />
-        <result column="s_product_issue" jdbcType="INTEGER" property="s_product_issue" />
-        <result column="s_donation" jdbcType="DECIMAL" property="s_donation" />
-        <result column="s_support_education" jdbcType="INTEGER" property="s_support_education" />
-        <result column="s_support_charity" jdbcType="INTEGER" property="s_support_charity" />
-        <result column="s_volunteer" jdbcType="INTEGER" property="s_volunteer" />
-        <result column="s_international_assistance" jdbcType="INTEGER" property="s_international_assistance" />
-        <result column="s_activate_employment" jdbcType="INTEGER" property="s_activate_employment" />
-        <result column="s_promote_economy" jdbcType="INTEGER" property="s_promote_economy" />
-        <result column="s_quality_award" jdbcType="INTEGER" property="s_quality_award" />
-        <result column="s_patent" jdbcType="INTEGER" property="s_patent" />
-        <result column="s_research_pay" jdbcType="DECIMAL" property="s_research_pay" />
+        <result column="e_punished" jdbcType="DOUBLE" property="e_punished" />
+        <result column="e_have_accidents" jdbcType="DOUBLE" property="e_have_accidents" />
+        <result column="e_monitored" jdbcType="DOUBLE" property="e_monitored" />
+        <result column="e_publish_idea" jdbcType="DOUBLE" property="e_publish_idea" />
+        <result column="e_publish_goal" jdbcType="DOUBLE" property="e_publish_goal" />
+        <result column="e_publish_regulation" jdbcType="DOUBLE" property="e_publish_regulation" />
+        <result column="e_use_emergency" jdbcType="DOUBLE" property="e_use_emergency" />
+        <result column="e_three_wastes_measure" jdbcType="DOUBLE" property="e_three_wastes_measure" />
+        <result column="e_education" jdbcType="DOUBLE" property="e_education" />
+        <result column="e_investment" jdbcType="DOUBLE" property="e_investment" />
+        <result column="e_recycle_eco" jdbcType="DOUBLE" property="e_recycle_eco" />
+        <result column="e_save_resource" jdbcType="DOUBLE" property="e_save_resource" />
+        <result column="e_green_office" jdbcType="DOUBLE" property="e_green_office" />
+        <result column="e_invention" jdbcType="DOUBLE" property="e_invention" />
+        <result column="e_useful_invention" jdbcType="DOUBLE" property="e_useful_invention" />
+        <result column="e_action" jdbcType="DOUBLE" property="e_action" />
+        <result column="e_product" jdbcType="DOUBLE" property="e_product" />
+        <result column="e_certification" jdbcType="DOUBLE" property="e_certification" />
+        <result column="e_award" jdbcType="DOUBLE" property="e_award" />
+        <result column="e_pollution" jdbcType="DOUBLE" property="e_pollution" />
+        <result column="s_poverty_alleviation_amount" jdbcType="DOUBLE" property="s_poverty_alleviation_amount" />
+        <result column="s_poverty_escape" jdbcType="DOUBLE" property="s_poverty_escape" />
+        <result column="s_poverty_future_plan" jdbcType="DOUBLE" property="s_poverty_future_plan" />
+        <result column="s_poverty_activity" jdbcType="DOUBLE" property="s_poverty_activity" />
+        <result column="s_publish_staff_protection" jdbcType="DOUBLE" property="s_publish_staff_protection" />
+        <result column="s_publish_supplier_protection" jdbcType="DOUBLE" property="s_publish_supplier_protection" />
+        <result column="s_publish_responsibility" jdbcType="DOUBLE" property="s_publish_responsibility" />
+        <result column="s_publish_responsibility_construction" jdbcType="DOUBLE" property="s_publish_responsibility_construction" />
+        <result column="s_publish_safe_production" jdbcType="DOUBLE" property="s_publish_safe_production" />
+        <result column="s_product_issue" jdbcType="DOUBLE" property="s_product_issue" />
+        <result column="s_donation" jdbcType="DOUBLE" property="s_donation" />
+        <result column="s_support_education" jdbcType="DOUBLE" property="s_support_education" />
+        <result column="s_support_charity" jdbcType="DOUBLE" property="s_support_charity" />
+        <result column="s_volunteer" jdbcType="DOUBLE" property="s_volunteer" />
+        <result column="s_international_assistance" jdbcType="DOUBLE" property="s_international_assistance" />
+        <result column="s_activate_employment" jdbcType="DOUBLE" property="s_activate_employment" />
+        <result column="s_promote_economy" jdbcType="DOUBLE" property="s_promote_economy" />
+        <result column="s_quality_award" jdbcType="DOUBLE" property="s_quality_award" />
+        <result column="s_patent" jdbcType="DOUBLE" property="s_patent" />
+        <result column="s_research_pay" jdbcType="DOUBLE" property="s_research_pay" />
         <result column="s_researcher_proportion" jdbcType="DOUBLE" property="s_researcher_proportion" />
         <result column="s_skill_proportion" jdbcType="DOUBLE" property="s_skill_proportion" />
-        <result column="s_anti_corruption" jdbcType="INTEGER" property="s_anti_corruption" />
-        <result column="s_share_strategy" jdbcType="INTEGER" property="s_share_strategy" />
-        <result column="s_operation_integrity" jdbcType="INTEGER" property="s_operation_integrity" />
-        <result column="s_employee_safe_issue" jdbcType="INTEGER" property="s_employee_safe_issue" />
-        <result column="s_layoff" jdbcType="INTEGER" property="s_layoff" />
-        <result column="s_employee_stake" jdbcType="INTEGER" property="s_employee_stake" />
-        <result column="s_employee_welfare" jdbcType="INTEGER" property="s_employee_welfare" />
-        <result column="s_safe_management" jdbcType="INTEGER" property="s_safe_management" />
-        <result column="s_safe_education" jdbcType="INTEGER" property="s_safe_education" />
-        <result column="s_employment_safety_certification" jdbcType="INTEGER" property="s_employment_safety_certification" />
-        <result column="s_employment_safety_education" jdbcType="INTEGER" property="s_employment_safety_education" />
-        <result column="s_employee_communication" jdbcType="INTEGER" property="s_employee_communication" />
+        <result column="s_anti_corruption" jdbcType="DOUBLE" property="s_anti_corruption" />
+        <result column="s_share_strategy" jdbcType="DOUBLE" property="s_share_strategy" />
+        <result column="s_operation_integrity" jdbcType="DOUBLE" property="s_operation_integrity" />
+        <result column="s_employee_safe_issue" jdbcType="DOUBLE" property="s_employee_safe_issue" />
+        <result column="s_layoff" jdbcType="DOUBLE" property="s_layoff" />
+        <result column="s_employee_stake" jdbcType="DOUBLE" property="s_employee_stake" />
+        <result column="s_employee_welfare" jdbcType="DOUBLE" property="s_employee_welfare" />
+        <result column="s_safe_management" jdbcType="DOUBLE" property="s_safe_management" />
+        <result column="s_safe_education" jdbcType="DOUBLE" property="s_safe_education" />
+        <result column="s_employment_safety_certification" jdbcType="DOUBLE" property="s_employment_safety_certification" />
+        <result column="s_employment_safety_education" jdbcType="DOUBLE" property="s_employment_safety_education" />
+        <result column="s_employee_communication" jdbcType="DOUBLE" property="s_employee_communication" />
         <result column="g_directors" jdbcType="DOUBLE" property="g_directors" />
         <result column="g_supervisors" jdbcType="DOUBLE" property="g_supervisors" />
         <result column="g_executives" jdbcType="DOUBLE" property="g_executives" />
@@ -72,18 +72,18 @@
         <result column="g_capital_award" jdbcType="DOUBLE" property="g_capital_award" />
         <result column="g_interest_guarantee" jdbcType="DOUBLE" property="g_interest_guarantee" />
         <result column="g_net_asset_reward" jdbcType="DOUBLE" property="g_net_asset_reward" />
-        <result column="g_finance_audit" jdbcType="INTEGER" property="g_finance_audit" />
-        <result column="g_control_audit" jdbcType="INTEGER" property="g_control_audit" />
+        <result column="g_finance_audit" jdbcType="DOUBLE" property="g_finance_audit" />
+        <result column="g_control_audit" jdbcType="DOUBLE" property="g_control_audit" />
         <result column="g_executive_quitting" jdbcType="DOUBLE" property="g_executive_quitting" />
         <result column="g_nonrecurring_gains_and_losses" jdbcType="DOUBLE" property="g_nonrecurring_gains_and_losses" />
-        <result column="g_dishonesty_person" jdbcType="INTEGER" property="g_dishonesty_person" />
-        <result column="g_dishonesty_action" jdbcType="INTEGER" property="g_dishonesty_action" />
-        <result column="g_dishonesty_punished" jdbcType="INTEGER" property="g_dishonesty_punished" />
-        <result column="g_illegal" jdbcType="INTEGER" property="g_illegal" />
-        <result column="g_have_extra_finance_form" jdbcType="INTEGER" property="g_have_extra_finance_form" />
-        <result column="g_willing_publish" jdbcType="INTEGER" property="g_willing_publish" />
-        <result column="g_have_publish" jdbcType="INTEGER" property="g_have_publish" />
-        <result column="g_publish_quality" jdbcType="INTEGER" property="g_publish_quality" />
+        <result column="g_dishonesty_person" jdbcType="DOUBLE" property="g_dishonesty_person" />
+        <result column="g_dishonesty_action" jdbcType="DOUBLE" property="g_dishonesty_action" />
+        <result column="g_dishonesty_punished" jdbcType="DOUBLE" property="g_dishonesty_punished" />
+        <result column="g_illegal" jdbcType="DOUBLE" property="g_illegal" />
+        <result column="g_have_extra_finance_form" jdbcType="DOUBLE" property="g_have_extra_finance_form" />
+        <result column="g_willing_publish" jdbcType="DOUBLE" property="g_willing_publish" />
+        <result column="g_have_publish" jdbcType="DOUBLE" property="g_have_publish" />
+        <result column="g_publish_quality" jdbcType="DOUBLE" property="g_publish_quality" />
         <result column="e_accident" jdbcType="DOUBLE" property="e_accident" />
         <result column="e_publish" jdbcType="DOUBLE" property="e_publish" />
         <result column="e_pollution_deal" jdbcType="DOUBLE" property="e_pollution_deal" />
@@ -437,124 +437,124 @@
                 #{g_score,jdbcType=DOUBLE},
             </if>
             <if test="e_punished != null">
-                #{e_punished,jdbcType=INTEGER},
+                #{e_punished,jdbcType=DOUBLE},
             </if>
             <if test="e_have_accidents != null">
-                #{e_have_accidents,jdbcType=INTEGER},
+                #{e_have_accidents,jdbcType=DOUBLE},
             </if>
             <if test="e_monitored != null">
-                #{e_monitored,jdbcType=INTEGER},
+                #{e_monitored,jdbcType=DOUBLE},
             </if>
             <if test="e_publish_idea != null">
-                #{e_publish_idea,jdbcType=INTEGER},
+                #{e_publish_idea,jdbcType=DOUBLE},
             </if>
             <if test="e_publish_goal != null">
-                #{e_publish_goal,jdbcType=INTEGER},
+                #{e_publish_goal,jdbcType=DOUBLE},
             </if>
             <if test="e_publish_regulation != null">
-                #{e_publish_regulation,jdbcType=INTEGER},
+                #{e_publish_regulation,jdbcType=DOUBLE},
             </if>
             <if test="e_use_emergency != null">
-                #{e_use_emergency,jdbcType=INTEGER},
+                #{e_use_emergency,jdbcType=DOUBLE},
             </if>
             <if test="e_three_wastes_measure != null">
-                #{e_three_wastes_measure,jdbcType=INTEGER},
+                #{e_three_wastes_measure,jdbcType=DOUBLE},
             </if>
             <if test="e_education != null">
-                #{e_education,jdbcType=INTEGER},
+                #{e_education,jdbcType=DOUBLE},
             </if>
             <if test="e_investment != null">
-                #{e_investment,jdbcType=DECIMAL},
+                #{e_investment,jdbcType=DOUBLE},
             </if>
             <if test="e_recycle_eco != null">
-                #{e_recycle_eco,jdbcType=INTEGER},
+                #{e_recycle_eco,jdbcType=DOUBLE},
             </if>
             <if test="e_save_resource != null">
-                #{e_save_resource,jdbcType=INTEGER},
+                #{e_save_resource,jdbcType=DOUBLE},
             </if>
             <if test="e_green_office != null">
-                #{e_green_office,jdbcType=INTEGER},
+                #{e_green_office,jdbcType=DOUBLE},
             </if>
             <if test="e_invention != null">
-                #{e_invention,jdbcType=INTEGER},
+                #{e_invention,jdbcType=DOUBLE},
             </if>
             <if test="e_useful_invention != null">
-                #{e_useful_invention,jdbcType=INTEGER},
+                #{e_useful_invention,jdbcType=DOUBLE},
             </if>
             <if test="e_action != null">
-                #{e_action,jdbcType=INTEGER},
+                #{e_action,jdbcType=DOUBLE},
             </if>
             <if test="e_product != null">
-                #{e_product,jdbcType=INTEGER},
+                #{e_product,jdbcType=DOUBLE},
             </if>
             <if test="e_certification != null">
-                #{e_certification,jdbcType=INTEGER},
+                #{e_certification,jdbcType=DOUBLE},
             </if>
             <if test="e_award != null">
-                #{e_award,jdbcType=INTEGER},
+                #{e_award,jdbcType=DOUBLE},
             </if>
             <if test="e_pollution != null">
-                #{e_pollution,jdbcType=INTEGER},
+                #{e_pollution,jdbcType=DOUBLE},
             </if>
             <if test="s_poverty_alleviation_amount != null">
-                #{s_poverty_alleviation_amount,jdbcType=DECIMAL},
+                #{s_poverty_alleviation_amount,jdbcType=DOUBLE},
             </if>
             <if test="s_poverty_escape != null">
-                #{s_poverty_escape,jdbcType=INTEGER},
+                #{s_poverty_escape,jdbcType=DOUBLE},
             </if>
             <if test="s_poverty_future_plan != null">
-                #{s_poverty_future_plan,jdbcType=INTEGER},
+                #{s_poverty_future_plan,jdbcType=DOUBLE},
             </if>
             <if test="s_poverty_activity != null">
-                #{s_poverty_activity,jdbcType=INTEGER},
+                #{s_poverty_activity,jdbcType=DOUBLE},
             </if>
             <if test="s_publish_staff_protection != null">
-                #{s_publish_staff_protection,jdbcType=INTEGER},
+                #{s_publish_staff_protection,jdbcType=DOUBLE},
             </if>
             <if test="s_publish_supplier_protection != null">
-                #{s_publish_supplier_protection,jdbcType=INTEGER},
+                #{s_publish_supplier_protection,jdbcType=DOUBLE},
             </if>
             <if test="s_publish_responsibility != null">
-                #{s_publish_responsibility,jdbcType=INTEGER},
+                #{s_publish_responsibility,jdbcType=DOUBLE},
             </if>
             <if test="s_publish_responsibility_construction != null">
-                #{s_publish_responsibility_construction,jdbcType=INTEGER},
+                #{s_publish_responsibility_construction,jdbcType=DOUBLE},
             </if>
             <if test="s_publish_safe_production != null">
-                #{s_publish_safe_production,jdbcType=INTEGER},
+                #{s_publish_safe_production,jdbcType=DOUBLE},
             </if>
             <if test="s_product_issue != null">
-                #{s_product_issue,jdbcType=INTEGER},
+                #{s_product_issue,jdbcType=DOUBLE},
             </if>
             <if test="s_donation != null">
-                #{s_donation,jdbcType=DECIMAL},
+                #{s_donation,jdbcType=DOUBLE},
             </if>
             <if test="s_support_education != null">
-                #{s_support_education,jdbcType=INTEGER},
+                #{s_support_education,jdbcType=DOUBLE},
             </if>
             <if test="s_support_charity != null">
-                #{s_support_charity,jdbcType=INTEGER},
+                #{s_support_charity,jdbcType=DOUBLE},
             </if>
             <if test="s_volunteer != null">
-                #{s_volunteer,jdbcType=INTEGER},
+                #{s_volunteer,jdbcType=DOUBLE},
             </if>
             <if test="s_international_assistance != null">
-                #{s_international_assistance,jdbcType=INTEGER},
+                #{s_international_assistance,jdbcType=DOUBLE},
             </if>
             <if test="s_activate_employment != null">
-                #{s_activate_employment,jdbcType=INTEGER},
+                #{s_activate_employment,jdbcType=DOUBLE},
             </if>
             <if test="s_promote_economy != null">
-                #{s_promote_economy,jdbcType=INTEGER},
+                #{s_promote_economy,jdbcType=DOUBLE},
             </if>
             <if test="s_quality_award != null">
-                #{s_quality_award,jdbcType=INTEGER},
+                #{s_quality_award,jdbcType=DOUBLE},
             </if>
             <if test="s_patent != null">
-                #{s_patent,jdbcType=INTEGER},
+                #{s_patent,jdbcType=DOUBLE},
             </if>
             <if test="s_research_pay != null">
-                #{s_research_pay,jdbcType=DECIMAL},
+                #{s_research_pay,jdbcType=DOUBLE},
             </if>
             <if test="s_researcher_proportion != null">
                 #{s_researcher_proportion,jdbcType=DOUBLE},
@@ -563,40 +563,40 @@
                 #{s_skill_proportion,jdbcType=DOUBLE},
             </if>
             <if test="s_anti_corruption != null">
-                #{s_anti_corruption,jdbcType=INTEGER},
+                #{s_anti_corruption,jdbcType=DOUBLE},
             </if>
             <if test="s_share_strategy != null">
-                #{s_share_strategy,jdbcType=INTEGER},
+                #{s_share_strategy,jdbcType=DOUBLE},
             </if>
             <if test="s_operation_integrity != null">
-                #{s_operation_integrity,jdbcType=INTEGER},
+                #{s_operation_integrity,jdbcType=DOUBLE},
             </if>
             <if test="s_employee_safe_issue != null">
-                #{s_employee_safe_issue,jdbcType=INTEGER},
+                #{s_employee_safe_issue,jdbcType=DOUBLE},
             </if>
             <if test="s_layoff != null">
-                #{s_layoff,jdbcType=INTEGER},
+                #{s_layoff,jdbcType=DOUBLE},
             </if>
             <if test="s_employee_stake != null">
-                #{s_employee_stake,jdbcType=INTEGER},
+                #{s_employee_stake,jdbcType=DOUBLE},
             </if>
             <if test="s_employee_welfare != null">
-                #{s_employee_welfare,jdbcType=INTEGER},
+                #{s_employee_welfare,jdbcType=DOUBLE},
             </if>
             <if test="s_safe_management != null">
-                #{s_safe_management,jdbcType=INTEGER},
+                #{s_safe_management,jdbcType=DOUBLE},
             </if>
             <if test="s_safe_education != null">
-                #{s_safe_education,jdbcType=INTEGER},
+                #{s_safe_education,jdbcType=DOUBLE},
             </if>
             <if test="s_employment_safety_certification != null">
-                #{s_employment_safety_certification,jdbcType=INTEGER},
+                #{s_employment_safety_certification,jdbcType=DOUBLE},
             </if>
             <if test="s_employment_safety_education != null">
-                #{s_employment_safety_education,jdbcType=INTEGER},
+                #{s_employment_safety_education,jdbcType=DOUBLE},
             </if>
             <if test="s_employee_communication != null">
-                #{s_employee_communication,jdbcType=INTEGER},
+                #{s_employee_communication,jdbcType=DOUBLE},
             </if>
             <if test="g_directors != null">
                 #{g_directors,jdbcType=DOUBLE},
@@ -626,10 +626,10 @@
                 #{g_net_asset_reward,jdbcType=DOUBLE},
             </if>
             <if test="g_finance_audit != null">
-                #{g_finance_audit,jdbcType=INTEGER},
+                #{g_finance_audit,jdbcType=DOUBLE},
             </if>
             <if test="g_control_audit != null">
-                #{g_control_audit,jdbcType=INTEGER},
+                #{g_control_audit,jdbcType=DOUBLE},
             </if>
             <if test="g_executive_quitting != null">
                 #{g_executive_quitting,jdbcType=DOUBLE},
@@ -638,28 +638,28 @@
                 #{g_nonrecurring_gains_and_losses,jdbcType=DOUBLE},
             </if>
             <if test="g_dishonesty_person != null">
-                #{g_dishonesty_person,jdbcType=INTEGER},
+                #{g_dishonesty_person,jdbcType=DOUBLE},
             </if>
             <if test="g_dishonesty_action != null">
-                #{g_dishonesty_action,jdbcType=INTEGER},
+                #{g_dishonesty_action,jdbcType=DOUBLE},
             </if>
             <if test="g_dishonesty_punished != null">
-                #{g_dishonesty_punished,jdbcType=INTEGER},
+                #{g_dishonesty_punished,jdbcType=DOUBLE},
             </if>
             <if test="g_illegal != null">
-                #{g_illegal,jdbcType=INTEGER},
+                #{g_illegal,jdbcType=DOUBLE},
             </if>
             <if test="g_have_extra_finance_form != null">
-                #{g_have_extra_finance_form,jdbcType=INTEGER},
+                #{g_have_extra_finance_form,jdbcType=DOUBLE},
             </if>
             <if test="g_willing_publish != null">
-                #{g_willing_publish,jdbcType=INTEGER},
+                #{g_willing_publish,jdbcType=DOUBLE},
             </if>
             <if test="g_have_publish != null">
-                #{g_have_publish,jdbcType=INTEGER},
+                #{g_have_publish,jdbcType=DOUBLE},
             </if>
             <if test="g_publish_quality != null">
-                #{g_publish_quality,jdbcType=INTEGER},
+                #{g_publish_quality,jdbcType=DOUBLE},
             </if>
             <if test="e_accident != null">
                 #{e_accident,jdbcType=DOUBLE},
@@ -733,124 +733,124 @@
                 G_score = #{g_score,jdbcType=DOUBLE},
             </if>
             <if test="e_punished != null">
-                e_punished = #{e_punished,jdbcType=INTEGER},
+                e_punished = #{e_punished,jdbcType=DOUBLE},
             </if>
             <if test="e_have_accidents != null">
-                e_have_accidents = #{e_have_accidents,jdbcType=INTEGER},
+                e_have_accidents = #{e_have_accidents,jdbcType=DOUBLE},
             </if>
             <if test="e_monitored != null">
-                e_monitored = #{e_monitored,jdbcType=INTEGER},
+                e_monitored = #{e_monitored,jdbcType=DOUBLE},
             </if>
             <if test="e_publish_idea != null">
-                e_publish_idea = #{e_publish_idea,jdbcType=INTEGER},
+                e_publish_idea = #{e_publish_idea,jdbcType=DOUBLE},
             </if>
             <if test="e_publish_goal != null">
-                e_publish_goal = #{e_publish_goal,jdbcType=INTEGER},
+                e_publish_goal = #{e_publish_goal,jdbcType=DOUBLE},
             </if>
             <if test="e_publish_regulation != null">
-                e_publish_regulation = #{e_publish_regulation,jdbcType=INTEGER},
+                e_publish_regulation = #{e_publish_regulation,jdbcType=DOUBLE},
             </if>
             <if test="e_use_emergency != null">
-                e_use_emergency = #{e_use_emergency,jdbcType=INTEGER},
+                e_use_emergency = #{e_use_emergency,jdbcType=DOUBLE},
             </if>
             <if test="e_three_wastes_measure != null">
-                e_three_wastes_measure = #{e_three_wastes_measure,jdbcType=INTEGER},
+                e_three_wastes_measure = #{e_three_wastes_measure,jdbcType=DOUBLE},
             </if>
             <if test="e_education != null">
-                e_education = #{e_education,jdbcType=INTEGER},
+                e_education = #{e_education,jdbcType=DOUBLE},
             </if>
             <if test="e_investment != null">
-                e_investment = #{e_investment,jdbcType=DECIMAL},
+                e_investment = #{e_investment,jdbcType=DOUBLE},
             </if>
             <if test="e_recycle_eco != null">
-                e_recycle_eco = #{e_recycle_eco,jdbcType=INTEGER},
+                e_recycle_eco = #{e_recycle_eco,jdbcType=DOUBLE},
             </if>
             <if test="e_save_resource != null">
-                e_save_resource = #{e_save_resource,jdbcType=INTEGER},
+                e_save_resource = #{e_save_resource,jdbcType=DOUBLE},
             </if>
             <if test="e_green_office != null">
-                e_green_office = #{e_green_office,jdbcType=INTEGER},
+                e_green_office = #{e_green_office,jdbcType=DOUBLE},
             </if>
             <if test="e_invention != null">
-                e_invention = #{e_invention,jdbcType=INTEGER},
+                e_invention = #{e_invention,jdbcType=DOUBLE},
             </if>
             <if test="e_useful_invention != null">
-                e_useful_invention = #{e_useful_invention,jdbcType=INTEGER},
+                e_useful_invention = #{e_useful_invention,jdbcType=DOUBLE},
             </if>
             <if test="e_action != null">
-                e_action = #{e_action,jdbcType=INTEGER},
+                e_action = #{e_action,jdbcType=DOUBLE},
             </if>
             <if test="e_product != null">
-                e_product = #{e_product,jdbcType=INTEGER},
+                e_product = #{e_product,jdbcType=DOUBLE},
             </if>
             <if test="e_certification != null">
-                e_certification = #{e_certification,jdbcType=INTEGER},
+                e_certification = #{e_certification,jdbcType=DOUBLE},
             </if>
             <if test="e_award != null">
-                e_award = #{e_award,jdbcType=INTEGER},
+                e_award = #{e_award,jdbcType=DOUBLE},
             </if>
             <if test="e_pollution != null">
-                e_pollution = #{e_pollution,jdbcType=INTEGER},
+                e_pollution = #{e_pollution,jdbcType=DOUBLE},
             </if>
             <if test="s_poverty_alleviation_amount != null">
-                s_poverty_alleviation_amount = #{s_poverty_alleviation_amount,jdbcType=DECIMAL},
+                s_poverty_alleviation_amount = #{s_poverty_alleviation_amount,jdbcType=DOUBLE},
             </if>
             <if test="s_poverty_escape != null">
-                s_poverty_escape = #{s_poverty_escape,jdbcType=INTEGER},
+                s_poverty_escape = #{s_poverty_escape,jdbcType=DOUBLE},
             </if>
             <if test="s_poverty_future_plan != null">
-                s_poverty_future_plan = #{s_poverty_future_plan,jdbcType=INTEGER},
+                s_poverty_future_plan = #{s_poverty_future_plan,jdbcType=DOUBLE},
             </if>
             <if test="s_poverty_activity != null">
-                s_poverty_activity = #{s_poverty_activity,jdbcType=INTEGER},
+                s_poverty_activity = #{s_poverty_activity,jdbcType=DOUBLE},
             </if>
             <if test="s_publish_staff_protection != null">
-                s_publish_staff_protection = #{s_publish_staff_protection,jdbcType=INTEGER},
+                s_publish_staff_protection = #{s_publish_staff_protection,jdbcType=DOUBLE},
             </if>
             <if test="s_publish_supplier_protection != null">
-                s_publish_supplier_protection = #{s_publish_supplier_protection,jdbcType=INTEGER},
+                s_publish_supplier_protection = #{s_publish_supplier_protection,jdbcType=DOUBLE},
             </if>
             <if test="s_publish_responsibility != null">
-                s_publish_responsibility = #{s_publish_responsibility,jdbcType=INTEGER},
+                s_publish_responsibility = #{s_publish_responsibility,jdbcType=DOUBLE},
             </if>
             <if test="s_publish_responsibility_construction != null">
-                s_publish_responsibility_construction = #{s_publish_responsibility_construction,jdbcType=INTEGER},
+                s_publish_responsibility_construction = #{s_publish_responsibility_construction,jdbcType=DOUBLE},
             </if>
             <if test="s_publish_safe_production != null">
-                s_publish_safe_production = #{s_publish_safe_production,jdbcType=INTEGER},
+                s_publish_safe_production = #{s_publish_safe_production,jdbcType=DOUBLE},
             </if>
             <if test="s_product_issue != null">
-                s_product_issue = #{s_product_issue,jdbcType=INTEGER},
+                s_product_issue = #{s_product_issue,jdbcType=DOUBLE},
             </if>
             <if test="s_donation != null">
-                s_donation = #{s_donation,jdbcType=DECIMAL},
+                s_donation = #{s_donation,jdbcType=DOUBLE},
             </if>
             <if test="s_support_education != null">
-                s_support_education = #{s_support_education,jdbcType=INTEGER},
+                s_support_education = #{s_support_education,jdbcType=DOUBLE},
             </if>
             <if test="s_support_charity != null">
-                s_support_charity = #{s_support_charity,jdbcType=INTEGER},
+                s_support_charity = #{s_support_charity,jdbcType=DOUBLE},
             </if>
             <if test="s_volunteer != null">
-                s_volunteer = #{s_volunteer,jdbcType=INTEGER},
+                s_volunteer = #{s_volunteer,jdbcType=DOUBLE},
             </if>
             <if test="s_international_assistance != null">
-                s_international_assistance = #{s_international_assistance,jdbcType=INTEGER},
+                s_international_assistance = #{s_international_assistance,jdbcType=DOUBLE},
             </if>
             <if test="s_activate_employment != null">
-                s_activate_employment = #{s_activate_employment,jdbcType=INTEGER},
+                s_activate_employment = #{s_activate_employment,jdbcType=DOUBLE},
             </if>
             <if test="s_promote_economy != null">
-                s_promote_economy = #{s_promote_economy,jdbcType=INTEGER},
+                s_promote_economy = #{s_promote_economy,jdbcType=DOUBLE},
             </if>
             <if test="s_quality_award != null">
-                s_quality_award = #{s_quality_award,jdbcType=INTEGER},
+                s_quality_award = #{s_quality_award,jdbcType=DOUBLE},
             </if>
             <if test="s_patent != null">
-                s_patent = #{s_patent,jdbcType=INTEGER},
+                s_patent = #{s_patent,jdbcType=DOUBLE},
             </if>
             <if test="s_research_pay != null">
-                s_research_pay = #{s_research_pay,jdbcType=DECIMAL},
+                s_research_pay = #{s_research_pay,jdbcType=DOUBLE},
             </if>
             <if test="s_researcher_proportion != null">
                 s_researcher_proportion = #{s_researcher_proportion,jdbcType=DOUBLE},
@@ -859,40 +859,40 @@
                 s_skill_proportion = #{s_skill_proportion,jdbcType=DOUBLE},
             </if>
             <if test="s_anti_corruption != null">
-                s_anti_corruption = #{s_anti_corruption,jdbcType=INTEGER},
+                s_anti_corruption = #{s_anti_corruption,jdbcType=DOUBLE},
             </if>
             <if test="s_share_strategy != null">
-                s_share_strategy = #{s_share_strategy,jdbcType=INTEGER},
+                s_share_strategy = #{s_share_strategy,jdbcType=DOUBLE},
             </if>
             <if test="s_operation_integrity != null">
-                s_operation_integrity = #{s_operation_integrity,jdbcType=INTEGER},
+                s_operation_integrity = #{s_operation_integrity,jdbcType=DOUBLE},
             </if>
             <if test="s_employee_safe_issue != null">
-                s_employee_safe_issue = #{s_employee_safe_issue,jdbcType=INTEGER},
+                s_employee_safe_issue = #{s_employee_safe_issue,jdbcType=DOUBLE},
             </if>
             <if test="s_layoff != null">
-                s_layoff = #{s_layoff,jdbcType=INTEGER},
+                s_layoff = #{s_layoff,jdbcType=DOUBLE},
             </if>
             <if test="s_employee_stake != null">
-                s_employee_stake = #{s_employee_stake,jdbcType=INTEGER},
+                s_employee_stake = #{s_employee_stake,jdbcType=DOUBLE},
             </if>
             <if test="s_employee_welfare != null">
-                s_employee_welfare = #{s_employee_welfare,jdbcType=INTEGER},
+                s_employee_welfare = #{s_employee_welfare,jdbcType=DOUBLE},
             </if>
             <if test="s_safe_management != null">
-                s_safe_management = #{s_safe_management,jdbcType=INTEGER},
+                s_safe_management = #{s_safe_management,jdbcType=DOUBLE},
             </if>
             <if test="s_safe_education != null">
-                s_safe_education = #{s_safe_education,jdbcType=INTEGER},
+                s_safe_education = #{s_safe_education,jdbcType=DOUBLE},
             </if>
             <if test="s_employment_safety_certification != null">
-                s_employment_safety_certification = #{s_employment_safety_certification,jdbcType=INTEGER},
+                s_employment_safety_certification = #{s_employment_safety_certification,jdbcType=DOUBLE},
             </if>
             <if test="s_employment_safety_education != null">
-                s_employment_safety_education = #{s_employment_safety_education,jdbcType=INTEGER},
+                s_employment_safety_education = #{s_employment_safety_education,jdbcType=DOUBLE},
             </if>
             <if test="s_employee_communication != null">
-                s_employee_communication = #{s_employee_communication,jdbcType=INTEGER},
+                s_employee_communication = #{s_employee_communication,jdbcType=DOUBLE},
             </if>
             <if test="g_directors != null">
                 g_directors = #{g_directors,jdbcType=DOUBLE},
@@ -922,10 +922,10 @@
                 g_net_asset_reward = #{g_net_asset_reward,jdbcType=DOUBLE},
             </if>
             <if test="g_finance_audit != null">
-                g_finance_audit = #{g_finance_audit,jdbcType=INTEGER},
+                g_finance_audit = #{g_finance_audit,jdbcType=DOUBLE},
             </if>
             <if test="g_control_audit != null">
-                g_control_audit = #{g_control_audit,jdbcType=INTEGER},
+                g_control_audit = #{g_control_audit,jdbcType=DOUBLE},
             </if>
             <if test="g_executive_quitting != null">
                 g_executive_quitting = #{g_executive_quitting,jdbcType=DOUBLE},
@@ -934,28 +934,28 @@
                 g_nonrecurring_gains_and_losses = #{g_nonrecurring_gains_and_losses,jdbcType=DOUBLE},
             </if>
             <if test="g_dishonesty_person != null">
-                g_dishonesty_person = #{g_dishonesty_person,jdbcType=INTEGER},
+                g_dishonesty_person = #{g_dishonesty_person,jdbcType=DOUBLE},
             </if>
             <if test="g_dishonesty_action != null">
-                g_dishonesty_action = #{g_dishonesty_action,jdbcType=INTEGER},
+                g_dishonesty_action = #{g_dishonesty_action,jdbcType=DOUBLE},
             </if>
             <if test="g_dishonesty_punished != null">
-                g_dishonesty_punished = #{g_dishonesty_punished,jdbcType=INTEGER},
+                g_dishonesty_punished = #{g_dishonesty_punished,jdbcType=DOUBLE},
             </if>
             <if test="g_illegal != null">
-                g_illegal = #{g_illegal,jdbcType=INTEGER},
+                g_illegal = #{g_illegal,jdbcType=DOUBLE},
             </if>
             <if test="g_have_extra_finance_form != null">
-                g_have_extra_finance_form = #{g_have_extra_finance_form,jdbcType=INTEGER},
+                g_have_extra_finance_form = #{g_have_extra_finance_form,jdbcType=DOUBLE},
             </if>
             <if test="g_willing_publish != null">
-                g_willing_publish = #{g_willing_publish,jdbcType=INTEGER},
+                g_willing_publish = #{g_willing_publish,jdbcType=DOUBLE},
             </if>
             <if test="g_have_publish != null">
-                g_have_publish = #{g_have_publish,jdbcType=INTEGER},
+                g_have_publish = #{g_have_publish,jdbcType=DOUBLE},
             </if>
             <if test="g_publish_quality != null">
-                g_publish_quality = #{g_publish_quality,jdbcType=INTEGER},
+                g_publish_quality = #{g_publish_quality,jdbcType=DOUBLE},
             </if>
             <if test="e_accident != null">
                 e_accident = #{e_accident,jdbcType=DOUBLE},
