@@ -38,8 +38,6 @@ public class InformationServiceImpl implements InformationService {
     @Resource
     private CorporationHistoryMapper corporationHistoryMapper;
 
-    @Resource
-    private CorporationThirdFactorMapper corporationThirdFactorMapper;
 
     @Override
     public ResultVO<List<CorporationEventVo>> getAllEventsByCorporationId(int corporation_id) {
@@ -170,11 +168,7 @@ public class InformationServiceImpl implements InformationService {
         if("second".equals(level)) {
             corporationFactor= corporationSecondFactorMapper.getByCorporationIdAndType(corporation_id, type);
             pos=new ArrayList<>(corporationSecondFactorMapper.getByIndustryAndType(corporationFactor.getIndustry(),type));
-        }if("third".equals(level)) {
-            corporationFactor=corporationThirdFactorMapper.getByCorporationIdAndType(corporation_id, type);
-            pos=new ArrayList<>(corporationThirdFactorMapper.getByIndustryAndType(corporationFactor.getIndustry(),type));
         }
-
 
         Map<String,FactorRankVo> map=new HashMap<>();
 
