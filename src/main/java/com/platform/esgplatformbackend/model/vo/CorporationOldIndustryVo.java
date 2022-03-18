@@ -1,28 +1,21 @@
 package com.platform.esgplatformbackend.model.vo;
 
-import com.platform.esgplatformbackend.model.po.CorporationEventPo;
+import com.platform.esgplatformbackend.model.po.CorporationOldIndustryPo;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.BeanUtils;
 
-import java.sql.Date;
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class CorporationEventVo {
+public class CorporationOldIndustryVo {
     private Integer corporation_id;
+    private String old_industry;
 
-    private Date time;
-
-    private String event;
-
-    private Integer event_id;
-
-    public CorporationEventVo(CorporationEventPo po){
+    public CorporationOldIndustryVo(CorporationOldIndustryPo po){
         BeanUtils.copyProperties(po,this);
     }
 }

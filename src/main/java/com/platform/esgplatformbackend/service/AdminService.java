@@ -13,7 +13,6 @@ public interface AdminService {
     ResultVO<CorporationESGHistoryVo> addESGHistory(CorporationESGHistoryVo vo);
     ResultVO<CorporationESGScoreVo> submitScore(CorporationESGScoreVo vo);
     ResultVO<CorporationOpinionVo> submitOpinion(CorporationOpinionVo vo);
-    ResultVO<CorporationEventVo> submitEvent(CorporationEventVo vo);
     ResultVO<CorporationStockVo> submitStock(CorporationStockVo vo);
     ResultVO<List<CorporationESGScoreVo>> getESGScore(Integer corporation_id);
 }

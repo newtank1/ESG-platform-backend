@@ -14,16 +14,10 @@ public class InfoController {
     @Resource
     InformationService informationService;
 
-    @GetMapping("/events/{corporation_id}")
-    public ResultVO<List<CorporationEventVo>> getEvents(@PathVariable Integer corporation_id, @RequestParam(name="day",required = false) Integer day){
-        if(day==null) return informationService.getAllEventsByCorporationId(corporation_id);
-        return informationService.getRecentEventsByCorporationId(corporation_id,day);
-    }
 
     @GetMapping("/opinions/{corporation_id}")
-    public ResultVO<List<CorporationOpinionVo>> getOpinions(@PathVariable Integer corporation_id, @RequestParam(name="day",required = false) Integer day){
-        if(day==null) return informationService.getAllOpinionByCorporationId(corporation_id);
-        return informationService.getRecentOpinionByCorporationId(corporation_id,day);
+    public ResultVO<List<CorporationOpinionVo>> getOpinions(@PathVariable Integer corporation_id){
+        return informationService.getAllOpinionByCorporationId(corporation_id);
     }
 
     @GetMapping("/stocks/{corporation_id}")
@@ -82,5 +76,16 @@ public class InfoController {
     @GetMapping("/rank/{corporation_id}")
     public ResultVO<String> getRank(@PathVariable Integer corporation_id,@RequestParam(name="type") String type){
         return informationService.getRank(corporation_id,type);
+    }
+
+    @GetMapping("/policy/{corporation_id}")
+    public ResultVO<List<PolicyVo>> getPolicy(@PathVariable Integer corporation_id){
+        return informationService.getRelatedPolicy(corporation_id);
+    }
+
+    @GetMapping("/scoreRank/{corporation_id}")
+    public ResultVO<List<FactorVo>> getScoreRank(@PathVariable Integer corporation_id,
+                                                 @RequestParam(name="type") String type){
+        return informationService.getScoreRanks(corporation_id,type);
     }
 }

@@ -14,13 +14,21 @@ import java.sql.Date;
 @AllArgsConstructor
 @Builder
 public class CorporationOpinionVo {
-    private int corporation_id;
+    private Integer corporation_id;
 
-    private Date time;
+    private Integer time;
 
-    private String opinion_text;
+    private Integer post;
 
-    private Double opinion_score;
+    private Integer replies;
+
+    private Integer likes;
+
+    private Integer reposts;
+
+    private Double sentiment_avg;
+
+    private Double sentiment_sum;
 
     private Integer opinion_id;
 

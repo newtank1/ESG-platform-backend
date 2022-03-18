@@ -7,7 +7,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.BeanUtils;
 
-import java.sql.Date;
 
 @Data
 @NoArgsConstructor
@@ -16,11 +15,19 @@ import java.sql.Date;
 public class CorporationOpinionPo {
     private Integer corporation_id;
 
-    private Date time;
+    private Integer time;
 
-    private String opinion_text;
+    private Integer post;
 
-    private double opinion_score;
+    private Integer replies;
+
+    private Integer likes;
+
+    private Integer reposts;
+
+    private Double sentiment_avg;
+
+    private Double sentiment_sum;
 
     private Integer opinion_id;
 

@@ -6,13 +6,8 @@ import java.util.List;
 
 public interface InformationService {
 
-    ResultVO<List<CorporationEventVo>> getAllEventsByCorporationId(int corporation_id);
-
-    ResultVO<List<CorporationEventVo>> getRecentEventsByCorporationId(int corporation_id,int day);
 
     ResultVO<List<CorporationOpinionVo>> getAllOpinionByCorporationId(int corporation_id);
-
-    ResultVO<List<CorporationOpinionVo>> getRecentOpinionByCorporationId(int corporation_id,int day);
 
     ResultVO<List<CorporationStockVo>> getAllStockByCorporationId(int corporation_id);
 
@@ -33,4 +28,8 @@ public interface InformationService {
     ResultVO<List<List<FactorVo>>> getTopFactors(int corporation_id,String type,int limit,String level);
 
     ResultVO<String> getRank(int corporation_id,String type);
+
+    ResultVO<List<PolicyVo>> getRelatedPolicy(int corporation_id);
+
+    ResultVO<List<FactorVo>> getScoreRanks(int corporation_id,String type);
 }

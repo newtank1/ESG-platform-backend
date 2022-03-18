@@ -13,9 +13,6 @@ public interface CorporationOpinionMapper {
     @Select("select * from corporation_opinion where corporation_id=#{corporation_id}")
     List<CorporationOpinionPo> getOpinions(Integer corporation_id);
 
-    @Select("select * from corporation_opinion where corporation_id=#{corporation_id} and to_days(now())-to_days(time) <= #{day}")
-    List<CorporationOpinionPo> getOpinionsByTime(Integer corporation_id, Integer day);
-
     @Select("select * from corporation_opinion where opinion_id=#{opinion_id}")
     CorporationOpinionPo getOpinionByOpinionId(Integer opinion_id);
 

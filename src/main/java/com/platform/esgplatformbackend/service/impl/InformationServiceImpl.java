@@ -21,9 +21,6 @@ public class InformationServiceImpl implements InformationService {
     private CorporationStockMapper corporationStockMapper;
 
     @Resource
-    private CorporationEventMapper corporationEventMapper;
-
-    @Resource
     private CorporationESGScoreMapper corporationESGScoreMapper;
 
     @Resource
@@ -38,40 +35,15 @@ public class InformationServiceImpl implements InformationService {
     @Resource
     private CorporationHistoryMapper corporationHistoryMapper;
 
+    @Resource
+    private CorporationOldIndustryMapper corporationOldIndustryMapper;
 
-    @Override
-    public ResultVO<List<CorporationEventVo>> getAllEventsByCorporationId(int corporation_id) {
-        List<CorporationEventPo> corporationEventPos=corporationEventMapper.getEvents(corporation_id);
-        List<CorporationEventVo> corporationEventVos=new ArrayList<>();
-        for(CorporationEventPo po:corporationEventPos){
-            corporationEventVos.add(new CorporationEventVo(po));
-        }
-        return new ResultVO<>(Constant.REQUEST_SUCCESS,"success",corporationEventVos);
-    }
-
-    @Override
-    public ResultVO<List<CorporationEventVo>> getRecentEventsByCorporationId(int corporation_id, int day) {
-        List<CorporationEventPo> corporationEventPos=corporationEventMapper.getEventsByTime(corporation_id,day);
-        List<CorporationEventVo> corporationEventVos=new ArrayList<>();
-        for(CorporationEventPo po:corporationEventPos){
-            corporationEventVos.add(new CorporationEventVo(po));
-        }
-        return new ResultVO<>(Constant.REQUEST_SUCCESS,"success",corporationEventVos);
-    }
+    @Resource
+    private PolicyMapper policyMapper;
 
     @Override
     public ResultVO<List<CorporationOpinionVo>> getAllOpinionByCorporationId(int corporation_id) {
         List<CorporationOpinionPo> corporationOpinionPos=corporationOpinionMapper.getOpinions(corporation_id);
-        List<CorporationOpinionVo> corporationOpinionVos=new ArrayList<>();
-        for (CorporationOpinionPo po : corporationOpinionPos) {
-            corporationOpinionVos.add(new CorporationOpinionVo(po));
-        }
-        return new ResultVO<>(Constant.REQUEST_SUCCESS,"success",corporationOpinionVos);
-    }
-
-    @Override
-    public ResultVO<List<CorporationOpinionVo>> getRecentOpinionByCorporationId(int corporation_id, int day) {
-        List<CorporationOpinionPo> corporationOpinionPos=corporationOpinionMapper.getOpinionsByTime(corporation_id,day);
         List<CorporationOpinionVo> corporationOpinionVos=new ArrayList<>();
         for (CorporationOpinionPo po : corporationOpinionPos) {
             corporationOpinionVos.add(new CorporationOpinionVo(po));
@@ -176,9 +148,9 @@ public class InformationServiceImpl implements InformationService {
         Field[] factors= factorClass.getDeclaredFields();
         for (Field factor : factors) {
             String name=factor.getName();
-            if(name.startsWith("s_")||name.startsWith("e_")||name.startsWith("g_")){
+            if(isFactor(name)){
                 factor.setAccessible(true);
-                FactorRankVo rankVo=new FactorRankVo(name,0,0);
+                FactorRankVo rankVo=new FactorRankVo(name,0);
                 map.put(name,rankVo);
             }
         }
@@ -189,7 +161,6 @@ public class InformationServiceImpl implements InformationService {
                     Field factor=factorClass.getDeclaredField(factorName);
                     factor.setAccessible(true);
                     Double poValue=(Double) factor.get(po);
-                    map.get(factorName).addSum(poValue);
                     if(poValue.compareTo((Double) factor.get(corporationFactor))>0){
                         map.get(factorName).addRank();
                     }
@@ -206,7 +177,7 @@ public class InformationServiceImpl implements InformationService {
         for(int i=0;i<limit&&i<rankVos.size();i++){
             try {
                 FactorRankVo vo = rankVos.get(i);
-                filterFactors(corporationFactor, pos, factorClass, topFactors, vo);
+                calculateRankLevel(corporationFactor, pos, factorClass, topFactors, vo);
             }catch (Exception e){
                 e.printStackTrace();
             }
@@ -216,7 +187,7 @@ public class InformationServiceImpl implements InformationService {
         for(int i=0;i<limit&&i<rankVos.size();i++){
             try {
                 FactorRankVo vo = rankVos.get(rankVos.size()-i-1);
-                filterFactors(corporationFactor, pos, factorClass, worstFactors, vo);
+                calculateRankLevel(corporationFactor, pos, factorClass, worstFactors, vo);
             }catch (Exception e){
                 e.printStackTrace();
             }
@@ -244,15 +215,78 @@ public class InformationServiceImpl implements InformationService {
         return new ResultVO<>(Constant.REQUEST_SUCCESS,"success",res);
     }
 
-    private void filterFactors(CorporationFactorPo corporationFactor, List<CorporationFactorPo> pos, Class<?> factorClass, List<FactorVo> factorList, FactorRankVo vo) throws NoSuchFieldException, IllegalAccessException {
+    @Override
+    public ResultVO<List<PolicyVo>> getRelatedPolicy(int corporation_id) {
+        String oldIndustry=corporationOldIndustryMapper.getById(corporation_id).getOld_industry();
+        String location=corporationInfoMapper.getCorporationById(corporation_id).getLocation();
+        List<PolicyPo> pos=policyMapper.getByLocation(location);
+        List<PolicyVo> vos=new ArrayList<>();
+        for (PolicyPo po : pos) {
+            if(po.getIndustry().contains(oldIndustry)) vos.add(new PolicyVo(po));
+        }
+        return new ResultVO<>(Constant.REQUEST_SUCCESS,"success",vos);
+    }
+
+    @Override
+    public ResultVO<List<FactorVo>> getScoreRanks(int corporation_id, String type) {
+        CorporationSecondFactorPo corporationFactorPo=corporationSecondFactorMapper.getByCorporationIdAndType(corporation_id,type);
+        List<CorporationSecondFactorPo> pos=corporationSecondFactorMapper.getByIndustryAndType(corporationFactorPo.getIndustry(),type);
+        
+        FactorRankVo total=new FactorRankVo("ESG_total_score",0);
+        FactorRankVo e=new FactorRankVo("E_score",0);
+        FactorRankVo s=new FactorRankVo("S_score",0);
+        FactorRankVo g=new FactorRankVo("G_score",0);
+        
+        for (CorporationSecondFactorPo po : pos) {
+            if(po.getESG_total_score()>corporationFactorPo.getESG_total_score()){
+                total.addRank();
+            }
+            if(po.getE_score()>corporationFactorPo.getE_score()){
+                e.addRank();
+            }
+            if(po.getS_score()>corporationFactorPo.getS_score()){
+                s.addRank();
+            }
+            if(po.getG_score()>corporationFactorPo.getG_score()){
+                g.addRank();
+            }
+        }
+        
+        List<FactorVo> result=new ArrayList<>();
+        int length=pos.size();
+        double e_ratio=e.getRank()*1.0/length;
+        double s_ratio=s.getRank()*1.0/length;
+        double g_ratio=g.getRank()*1.0/length;
+        double total_ratio=total.getRank()*1.0/length;
+        result.add(new FactorVo("ESG_total_score",corporationFactorPo.getESG_total_score(),total_ratio,makeLevel(total_ratio)));
+        result.add(new FactorVo("E_score",corporationFactorPo.getE_score(),e_ratio,makeLevel(e_ratio)));
+        result.add(new FactorVo("S_score",corporationFactorPo.getS_score(),s_ratio,makeLevel(s_ratio)));
+        result.add(new FactorVo("G_score",corporationFactorPo.getG_score(),g_ratio,makeLevel(g_ratio)));
+        return new ResultVO<>(Constant.REQUEST_SUCCESS,"success",result);
+    }
+
+    private void calculateRankLevel(CorporationFactorPo corporationFactor, List<CorporationFactorPo> pos, Class<?> factorClass, List<FactorVo> factorList, FactorRankVo vo) throws NoSuchFieldException, IllegalAccessException {
         Field factor = factorClass.getDeclaredField(vo.name);
         factor.setAccessible(true);
         Double value = (Double) factor.get(corporationFactor);
         int count=pos.size();
-        factorList.add(new FactorVo(vo.name,value,value.compareTo(vo.sum/count)>0,(vo.sum*1.0)/count ));
+        double ratio=(vo.rank*1.0)/count;
+        factorList.add(new FactorVo(vo.name,value,ratio,makeLevel(ratio) ));
     }
 
 
+    private boolean isFactor(String name){
+        return name.startsWith("s_")||name.startsWith("e_")||name.startsWith("g_");
+    }
 
-
+    private String makeLevel(double ratio){
+        if(ratio<0.1) return "A";
+        if(ratio<0.2) return "A-";
+        if(ratio<0.35) return "B";
+        if(ratio<0.6) return "B-";
+        if(ratio<0.75) return "C";
+        if(ratio<0.9) return "C-";
+        if(ratio<0.95) return "D";
+        return "D-";
+    }
 }

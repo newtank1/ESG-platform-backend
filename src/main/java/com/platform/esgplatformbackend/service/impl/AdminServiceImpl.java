@@ -24,8 +24,6 @@ public class AdminServiceImpl implements AdminService {
     @Resource
     private CorporationStockMapper corporationStockMapper;
     @Resource
-    private CorporationEventMapper corporationEventMapper;
-    @Resource
     private CorporationESGScoreMapper corporationESGScoreMapper;
     @Resource
     private CorporationHistoryMapper corporationHistoryMapper;
@@ -112,15 +110,6 @@ public class AdminServiceImpl implements AdminService {
         }
     }
 
-    @Override
-    public ResultVO<CorporationEventVo> submitEvent(CorporationEventVo vo) {
-        int line = corporationEventMapper.insert(new CorporationEventPo(vo));
-        if(line==1){
-            return new ResultVO<>(Constant.REQUEST_SUCCESS, "成功", vo);
-        }else{
-            return new ResultVO<>(Constant.REQUEST_FAIL, "失败");
-        }
-    }
 
     @Override
     public ResultVO<CorporationStockVo> submitStock(CorporationStockVo vo) {

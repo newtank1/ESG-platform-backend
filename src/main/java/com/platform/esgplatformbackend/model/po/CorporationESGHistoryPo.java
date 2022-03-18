@@ -23,7 +23,7 @@ public class CorporationESGHistoryPo {
     private Integer record_id;
 
     @JsonProperty(value = "time")
-    private Date time;
+    private Integer time;
 
     @JsonProperty(value = "steady_record_id")
     private Integer steady_record_id;

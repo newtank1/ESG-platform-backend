@@ -24,52 +24,58 @@ public class CorporationSecondFactorVo implements CorporationFactorVo{
 @JsonProperty(value = "score_type")
   private String score_type;
 
-@JsonProperty(value = "e_accident")
+  @JsonProperty(value = "ESG_total_score")
+  private Double ESG_total_score;
+
+  @JsonProperty(value = "E_score")
+  private Double E_score;
+
+  @JsonProperty(value = "S_score")
+  private Double S_score;
+
+  @JsonProperty(value = "G_score")
+  private Double G_score;
+
+  @JsonProperty(value = "e_accident")
   private Double e_accident;
 
-@JsonProperty(value = "e_publish")
-  private Double e_publish;
+  @JsonProperty(value = "e_advantage")
+  private Double e_advantage;
 
-@JsonProperty(value = "e_pollution_deal")
-  private Double e_pollution_deal;
+  @JsonProperty(value = "e_idea")
+  private Double e_idea;
 
-@JsonProperty(value = "e_benefit")
-  private Double e_benefit;
+  @JsonProperty(value = "e_pollution")
+  private Double e_pollution;
 
-@JsonProperty(value = "e_others")
-  private Double e_others;
-
-@JsonProperty(value = "s_poverty")
-  private Double s_poverty;
-
-@JsonProperty(value = "s_publish")
-  private Double s_publish;
-
-@JsonProperty(value = "s_issue")
-  private Double s_issue;
-
-@JsonProperty(value = "s_charity")
+  @JsonProperty(value = "s_charity")
   private Double s_charity;
 
-@JsonProperty(value = "s_product")
-  private Double s_product;
+  @JsonProperty(value = "s_publish")
+  private Double s_publish;
 
-@JsonProperty(value = "s_employee")
-  private Double s_employee;
+  @JsonProperty(value = "s_responsibility")
+  private Double s_responsibility;
 
-@JsonProperty(value = "g_structure")
+  @JsonProperty(value = "s_employee_variety")
+  private Double s_employee_variety;
+
+  @JsonProperty(value = "s_employee_guarantee")
+  private Double s_employee_guarantee;
+
+  @JsonProperty(value = "g_structure")
   private Double g_structure;
 
-@JsonProperty(value = "g_result")
+  @JsonProperty(value = "g_result")
   private Double g_result;
 
-@JsonProperty(value = "g_audit")
+  @JsonProperty(value = "g_audit")
   private Double g_audit;
 
-@JsonProperty(value = "g_exception")
+  @JsonProperty(value = "g_exception")
   private Double g_exception;
 
-@JsonProperty(value = "g_visibility")
+  @JsonProperty(value = "g_visibility")
   private Double g_visibility;
 
   public CorporationSecondFactorVo(CorporationSecondFactorPo po){

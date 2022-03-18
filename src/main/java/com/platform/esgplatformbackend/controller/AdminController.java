@@ -31,11 +31,6 @@ public class AdminController {
         return service.submitOpinion(vo);
     }
 
-    @PostMapping("/event")
-    public ResultVO<CorporationEventVo> submitEvent(@RequestBody CorporationEventVo vo){
-        return service.submitEvent(vo);
-    }
-
     @PostMapping("/stock")
     public ResultVO<CorporationStockVo> submitStock(@RequestBody CorporationStockVo vo){
         return service.submitStock(vo);
