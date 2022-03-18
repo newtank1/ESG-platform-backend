@@ -17,11 +17,11 @@ public interface InformationService {
 
     ResultVO<CorporationESGScoreVo> getLatestRiskyScore(int corporation_id);
 
-    ResultVO<List<CorporationESGScoreVo>> getRiskyScores(int corporation_id,int day);
+    ResultVO<List<CorporationESGScoreVo>> getRiskyScores(int corporation_id);
 
     ResultVO<CorporationESGScoreVo> getLatestSteadyScore(int corporation_id);
 
-    ResultVO<List<CorporationESGScoreVo>> getSteadyScores(int corporation_id,int day);
+    ResultVO<List<CorporationESGScoreVo>> getSteadyScores(int corporation_id);
 
     ResultVO<List<CorporationSecondFactorVo>> getFactors(int corporation_id);
 

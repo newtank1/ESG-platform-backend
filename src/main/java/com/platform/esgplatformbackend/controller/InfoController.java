@@ -37,11 +37,8 @@ public class InfoController {
     }
 
     @GetMapping("/allRisky/{corporation_id}")
-    public ResultVO<List<CorporationESGScoreVo>> getRiskyScores(@PathVariable Integer corporation_id,@RequestParam(name="day",required = false) Integer day){
-        if (day == null) {
-            day=365;
-        }
-        return informationService.getRiskyScores(corporation_id,day);
+    public ResultVO<List<CorporationESGScoreVo>> getRiskyScores(@PathVariable Integer corporation_id){
+        return informationService.getRiskyScores(corporation_id);
     }
 
     @GetMapping("/steady/{corporation_id}")
@@ -50,11 +47,8 @@ public class InfoController {
     }
 
     @GetMapping("/allSteady/{corporation_id}")
-    public ResultVO<List<CorporationESGScoreVo>> getSteadyScores(@PathVariable Integer corporation_id,@RequestParam(name="day",required = false) Integer day){
-        if (day == null) {
-            day=365;
-        }
-        return informationService.getSteadyScores(corporation_id,day);
+    public ResultVO<List<CorporationESGScoreVo>> getSteadyScores(@PathVariable Integer corporation_id){
+        return informationService.getSteadyScores(corporation_id);
     }
 
     @GetMapping("/factors/{corporation_id}")

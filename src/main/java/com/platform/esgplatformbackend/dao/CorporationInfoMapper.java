@@ -18,7 +18,7 @@ public interface CorporationInfoMapper {
             "select * from corporation_info " +
             "where 1=1 " +
             "<if test='name!=null'> and name like '%${name}%' </if>" +
-            "<if test='industry!=null'>and industry = #{industry} </if>" +
+            "<if test='industry!=null'>and left(industry,1) = left(#{industry},1) </if>" +
             "<if test='location!=null'>and location = #{location} </if>" +
             "</script>")
     List<CorporationInfoPo> getCorporationBySearching(String name,String industry,String location);

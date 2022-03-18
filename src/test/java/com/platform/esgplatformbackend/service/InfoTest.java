@@ -68,6 +68,6 @@ public class InfoTest {
 
     @Test
     void getTopFactors(){
-        informationService.getTopFactors(1,"risky",5,"second");
+        //informationService.getTopFactors(1,"risky",5,"second");
     }
 }

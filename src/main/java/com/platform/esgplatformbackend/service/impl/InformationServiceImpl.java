@@ -90,8 +90,8 @@ public class InformationServiceImpl implements InformationService {
     }
 
     @Override
-    public ResultVO<List<CorporationESGScoreVo>> getRiskyScores(int corporation_id, int day) {
-        List<CorporationESGHistoryPo> corporationESGHistoryPos=corporationHistoryMapper.selectByCorporationAndTime(corporation_id,day);
+    public ResultVO<List<CorporationESGScoreVo>> getRiskyScores(int corporation_id) {
+        List<CorporationESGHistoryPo> corporationESGHistoryPos=corporationHistoryMapper.selectByCorporation(corporation_id);
         List<CorporationESGScoreVo> vos=new ArrayList<>();
         for (CorporationESGHistoryPo corporationESGHistoryPo : corporationESGHistoryPos) {
             CorporationESGScorePo po=corporationESGScoreMapper.getByRecordId(corporationESGHistoryPo.getRisky_record_id());
@@ -113,8 +113,8 @@ public class InformationServiceImpl implements InformationService {
     }
 
     @Override
-    public ResultVO<List<CorporationESGScoreVo>> getSteadyScores(int corporation_id, int day) {
-        List<CorporationESGHistoryPo> corporationESGHistoryPos=corporationHistoryMapper.selectByCorporationAndTime(corporation_id,day);
+    public ResultVO<List<CorporationESGScoreVo>> getSteadyScores(int corporation_id) {
+        List<CorporationESGHistoryPo> corporationESGHistoryPos=corporationHistoryMapper.selectByCorporation(corporation_id);
         List<CorporationESGScoreVo> vos=new ArrayList<>();
         for (CorporationESGHistoryPo corporationESGHistoryPo : corporationESGHistoryPos) {
             CorporationESGScorePo po=corporationESGScoreMapper.getByRecordId(corporationESGHistoryPo.getSteady_record_id());
@@ -200,7 +200,7 @@ public class InformationServiceImpl implements InformationService {
     @Override
     public ResultVO<String> getRank(int corporation_id, String type) {
         CorporationInfoPo cor=corporationInfoMapper.getCorporationById(corporation_id);
-        List<CorporationInfoPo> pos=corporationInfoMapper.getCorporationBySearching(cor.getName(),cor.getIndustry(),null);
+        List<CorporationInfoPo> pos=corporationInfoMapper.getCorporationBySearching(null,cor.getIndustry(),null);
         int rank=1;
         for (CorporationInfoPo po : pos) {
             if("risky".equals(type)){
